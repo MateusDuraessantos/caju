@@ -1,0 +1,28 @@
+header {
+    height: 100vh;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background: white;
+    height: 80px;
+    padding: 0 100px;
+    gap: 40px;
+}
+
+.banner {
+    font-size: 22px;
+    color: white;
+}
+
+.h1__banner{
+    width: 500px;
+}
+
+.banner__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+}
+
