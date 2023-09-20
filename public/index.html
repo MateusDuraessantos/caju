@@ -11,14 +11,14 @@
     <div id="app">
         <header>
             <nav>
-                <img src="https://t3.ftcdn.net/jpg/05/27/34/52/360_F_527345215_eRBa69LFT7YM6BASdfu6KLV3BVfH1EpW.jpg" width="60" alt="Logo Caju">
+                <img src="./src/logo.svg" width="60" alt="Logo Caju">
             </nav>
             <div class="banner margin--body">
                 <h1 class="h1__banner">
-                    A Cora leva os multibenefícios Caju para sua empresa
+                    A Cora leva os <br> multibenefícios Caju <br> para sua empresa
                 </h1>
                 <p class="banner__subtitle">
-                    Caju é a solução completa para oferecer multibenefícios que vão da mobilidade ao bemestar dos colaboradores da sua empresa
+                    Caju é a solução completa para oferecer <br> multibenefícios que vão da mobilidade ao bem-estar<br> dos colaboradores da sua empresa
                 </p>
                 <button class="btn__red">
                     Quero conhecer Caju
@@ -36,7 +36,7 @@
 
             <section class="margin--body">
                 <div class="cartao">
-                    <img class="cartao__img" src="https://images.unsplash.com/photo-1648161235879-d2ba122f9ad9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                    <img class="cartao__img" src="/public/src/cartao-grafismo.svg">
                     <div class="cartao__cont">
                         <span v-for="cartao in cartoes">
                             <div class="flex">
@@ -57,14 +57,15 @@
 
             <!-- Benefícios -->
             
-            <section class="margin--body">
-                <div class="beneficios">
+            <section class="section__beneficios">
+                <img class="background--beneficio" src="./src/images/image-backogrund-1.jpg">
+                <div class="beneficios margin--body">
                     <div class="beneficios__red">
                         <div class="beneficios__title">
-                            <img class="beneficios__svg"  src="https://scfoods.fbitsstatic.net/img/p/caju-300g-70935/257554.jpg?w=800&h=800&v=no-change&qs=ignore">
+                            <img class="beneficios__svg"  src="./src/caju-beneficios.svg">
                             <p class="beneficios__calling">Chega mais, vem conhecer <br> os multibenefícios! </p>
                         </div>
-                        <br>
+                      
                         <div class="beneficios__grid">
                             <div v-for="item in items" class="beneficios__card" :style="`background: #${item.color}`">
                                 <div class="beneficios__card--title">
@@ -87,82 +88,100 @@
 
             <!--  -->
 
-            <div class="surpreenda">
+            <section class="surpreenda">
+                <div class="surpreenda--container margin--body">
 
-                <img class="surpreenda__img" src="https://t3.ftcdn.net/jpg/05/70/00/28/360_F_570002861_aIIDsRrIrSoDa6634sfxzjgbmAMltWB5.jpg">
-
-               <div>
-                    <h2>
-                        Surpreenda seu time com um <br>
-                        saldo no Caju Premiações 
-                    </h2>
-                
-                    <p>
-                        Caju Premiações é a solução perfeita para presentear seus colaboradores com um saldo extra no cajuzinho, sem perder a segurança jurídica e sem misturar com o saldo de multibenefícios! 
-                    </p>
-                
-                    <p>
-                        Na mesma plataforma de gestão de multibenefícios, a empresa pode pagar um saldo especial para o colaborador usar:    
-                    </p>
-                
-                    <div class="flex">
-                        <img class="surpreenda__icon" src="https://cdn-icons-png.flaticon.com/512/5916/5916471.png">
-                        <p>Em compras, pagando com cajuzinho físico ou virtual</p>
-                    </div>
-                
-                    <div class="flex">
-                        <img class="surpreenda__icon" src="https://cdn-icons-png.flaticon.com/512/5916/5916471.png">
-                        <p>Em pagamento de boletos pelo aplicativo Caju</p>
-                    </div>
+                    <img class="surpreenda__img" src="./src/caju-premiacoes.svg">
+    
+                   <div>
+                        <h2 style="color: var(--caju__red)">
+                            Surpreenda seu time com um <br>
+                            saldo no Caju Premiações 
+                        </h2>
+                        
+                        <br>
+                        <br>
+                        <p>
+                            Caju Premiações é a solução perfeita para presentear seus colaboradores com um saldo extra no cajuzinho, sem perder a segurança jurídica e sem misturar com o saldo de multibenefícios! 
+                        </p>
                     
-                    <div class="flex">
-                        <img class="surpreenda__icon" src="https://cdn-icons-png.flaticon.com/512/5916/5916471.png">
-                        <p>Em saques nos caixas eletrônicos da rede Banco 24 Horas.</p>
-                    </div>
-               </div>
-            </div>
+                        <p>
+                            Na mesma plataforma de gestão de multibenefícios, a empresa pode pagar um saldo especial para o colaborador usar:    
+                        </p>
+                    
+                        <br>
+                        <br>
+    
+                        <div style=" display: flex; flex-direction: column; gap: 20px;">
+                            <div class="flex">
+                                <img class="surpreenda__icon" src="./src/icons/shopping-bag.svg">
+                                <p>Em compras, pagando com cajuzinho físico ou virtual</p>
+                            </div>
+                        
+                            <div class="flex">
+                                <img class="surpreenda__icon" src="./src/icons/comprovantes.svg">
+                                <p>Em pagamento de boletos pelo aplicativo Caju</p>
+                            </div>
+                            
+                            <div class="flex">
+                                <img class="surpreenda__icon" src="./src/icons/pagar.svg">
+                                <p>Em saques nos caixas eletrônicos da rede Banco 24 Horas.</p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </section>
 
             <section>
-                <div class="premiacoes">
-                    <h3 class="premiacoes__h3">
+                <div class="premiacoes margin--body">
+                    <h2 class="premiacoes__h2">
                         Caju Premiações vai bem <br> em qualquer ocasião
-                    </h3>
+                    </h2>
 
                     <div class="premiacoes__grid">
                         <div>
-                            <img class="premiacoes__card" src="https://t3.ftcdn.net/jpg/05/70/00/28/360_F_570002861_aIIDsRrIrSoDa6634sfxzjgbmAMltWB5.jpg">
+                            <img class="premiacoes__card" src="./src/presente.svg">
                             <p class="premiacoes__p">
-                                Natal e festa de fim de ano chegando
+                                Natal e festa de <br> fim de ano chegando
                             </p>
                         </div>
                         <div>
-                            <img class="premiacoes__card" src="https://t3.ftcdn.net/jpg/05/70/00/28/360_F_570002861_aIIDsRrIrSoDa6634sfxzjgbmAMltWB5.jpg">
+                            <img class="premiacoes__card" src="./src/calendario.svg">
                             <p class="premiacoes__p">
-                                Aniversário do colaborador, da empresa
+                                Aniversário do colaborador, da empresa <br>
                                 por reconhecimento por tempo de casa
                             </p>
                         </div>
                         <div>
-                            <img class="premiacoes__card" src="https://t3.ftcdn.net/jpg/05/70/00/28/360_F_570002861_aIIDsRrIrSoDa6634sfxzjgbmAMltWB5.jpg">
+                            <img class="premiacoes__card" src="./src/premio.svg">
                             <p class="premiacoes__p">
-                                Recompensa por indicação de novos talentos
+                                Recompensa por indicação <br> de novos talentos
                             </p>
                         </div>
                     </div>
+                    
+                    <br>
+                    <br>
+                    <br>
+
+                    <button class="btn__red">
+                        Presentear com Caju Premiações
+                    </button>
+
                 </div>
             </section>
 
-
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            <section>
-                <div class="solucoes">
+            <section class="section__solucoes">
+                <div class="solucoes margin--body">
                     <div class="solucoes__header">
-                        <img src="">
+                        <img class="solucoes__logo-despesas" src="./src/logo-despesas.svg">
                         <div>
-                            <h3>
-
-                            </h3>
+                            <h2>
+                                Solução para sua empresa evoluir a gestão e controle de gastos
+                            </h2>
+                            <br>
                             <p>
+                                Ganhe mais visibilidade e uma gestão centralizada das despesas corporativas, com informações detalhadas, fluxos de pagamento otimizados e um único cartão bandeira Visa.
                             </p>
                         </div>
                     </div>
@@ -177,29 +196,31 @@
                                 Use o saldo de despesas com o cartão
                                 Caju físico ou virtual para pagar:
                             </p>
+                           <div class="solucoes__list--container">
                             <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="https://cdn-icons-png.flaticon.com/512/7761/7761424.png">
+                                <img class="solucoes__list--icon" src="./src/icons/calendar.svg">
                                 <p>Inscrições em eventos e feiras;</p>
                             </div>
                             <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="https://cdn-icons-png.flaticon.com/512/7761/7761424.png">
-                                <p>Inscrições em eventos e feiras;</p>
+                                <img class="solucoes__list--icon" src="./src/icons/flight.svg">
+                                <p>Reservas de passagens e <br> hospedagens na viagem corporativa;</p>
                             </div>
                             <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="https://cdn-icons-png.flaticon.com/512/7761/7761424.png">
-                                <p>Inscrições em eventos e feiras;</p>
+                                <img class="solucoes__list--icon" src="./src/icons/medal.svg">
+                                <p>Cursos, certificações e treinamentos do time;</p>
                             </div>
                             <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="https://cdn-icons-png.flaticon.com/512/7761/7761424.png">
-                                <p>Inscrições em eventos e feiras;</p>
+                                <img class="solucoes__list--icon" src="./src/icons/pencil.svg">
+                                <p>Materiais gráficos e papelaria para o escritório;</p>
                             </div>
-                            <br>
-                            <button class="btn__white">
-                                Quero Provar Caju Despesas
-                            </button>
+                            <div class="solucoes__list flex">
+                                <img class="solucoes__list--icon" src="./src/icons/coffee.svg">
+                                <p>Materiais gráficos e papelaria para o escritório;</p>
+                            </div>
+                           </div>
                         </div>
                         
-                        <img class="solucoes__img--grid" src="https://blog.natone.com.br/wp-content/uploads/2022/10/beneficios-do-caju-interna-2.jpg">
+                        <img class="solucoes__img--grid" src="./src/images/image-backogrund-1.jpg">
                     </div>
 
                     <!--  -->
@@ -212,26 +233,24 @@
 
                     <div class="solucoes__group">
                         <div class="group__container flex">
-                            <img class="group__icon" src="https://cdn-icons-png.flaticon.com/512/411/411698.png">
+                            <img class="group__icon" src="./src/maquininha.svg">
                             <div>
                                 <p class="group__title">
                                     Categorização <br>
                                     automática de gastos
                                 </p>
-                                <br>
                                 <p class="group__text">
                                     Checagem fácil do tipos de gastos realizados
                                 </p>
                             </div>
                         </div>
                         <div class="group__container flex">
-                            <img class="group__icon" src="https://cdn-icons-png.flaticon.com/512/411/411698.png">
+                            <img class="group__icon" src="./src/cartao.svg">
                             <div>
                                 <p class="group__title">
                                     Cartão pré-pago <br>
                                     bandeira Visa
                                 </p>
-                                <br>
                                 <p class="group__text">
                                     Se o estabelecimento aceita <br>
                                     Visa, ele aceita o cajuzinho!
@@ -239,12 +258,11 @@
                             </div>
                         </div>
                         <div class="group__container flex">
-                            <img class="group__icon" src="https://cdn-icons-png.flaticon.com/512/411/411698.png">
+                            <img class="group__icon" src="./src/ilustracao.svg">
                             <div>
                                 <p class="group__title">
                                     Resgate automático
                                 </p>
-                                <br>
                                 <p class="group__text">
                                     O saldo restante pode voltar <br>
                                     automaticamente para a empresa<br>
@@ -253,12 +271,11 @@
                             </div>
                         </div>
                         <div class="group__container flex">
-                            <img class="group__icon" src="https://cdn-icons-png.flaticon.com/512/411/411698.png">
+                            <img class="group__icon" src="./src/cadeado.svg">
                             <div>
                                 <p class="group__title">
                                     Resgate automático
                                 </p>
-                                <br>
                                 <p class="group__text">
                                     O saldo restante pode voltar <br>
                                     automaticamente para a empresa<br>
@@ -267,12 +284,11 @@
                             </div>
                         </div>
                         <div class="group__container flex">
-                            <img class="group__icon" src="https://cdn-icons-png.flaticon.com/512/411/411698.png">
+                            <img class="group__icon" src="./src/desktop.svg">
                             <div>
                                 <p class="group__title">
                                     Resgate automático
                                 </p>
-                                <br>
                                 <p class="group__text">
                                     O saldo restante pode voltar <br>
                                     automaticamente para a empresa<br>
@@ -294,7 +310,7 @@
             <section>
                 <div class="descontos">
                    <div class="descontos__grid">
-                       <img class="descontos__img" src="https://img.freepik.com/fotos-premium/caju-e-castanha-em-estudio-com-goticulas-de-agua-brazilian-fruit_491130-1441.jpg" alt="">
+                       <img class="descontos__img" src="./src/ticket.svg" alt="">
                         <div class="descontos__group--1">
                             <h3 class="descontos__h3">
                                 Só quem contrata Caju com a Cora, tem acesso aos melhores descontos no Feirinha da Caju
@@ -312,18 +328,18 @@
                         <h3 class="descontos__h3">
                             Dezenas de cupons <br> para os colaboradores <br> desfrutarem
                         </h3>
-                        <img src="https://img.freepik.com/fotos-premium/caju-e-castanha-em-estudio-com-goticulas-de-agua-brazilian-fruit_491130-1441.jpg" alt="">
+                        <img src="./src/ticket.svg" alt="">
                     </div>
 
                     <div class="descontos__group flex">
-                        <img src="https://img.freepik.com/fotos-premium/caju-e-castanha-em-estudio-com-goticulas-de-agua-brazilian-fruit_491130-1441.jpg" alt="">
+                        <img src="./src/notebook.svg" alt="">
                         <h3 class="descontos__h3">
                             Mais economia em <br> produtos e serviços <br> para sua empresa
                         </h3>
                     </div>
 
                     <br><br><br><br>                        
-                    <button class="btn__orange margin">Quero descontos no Feirinha</button>
+                    <button class="btn__white margin">Quero descontos no Feirinha</button>
                 </div>
             </section>
             
@@ -363,9 +379,9 @@
         </main>
 
         <footer class="footer">
-            <h3 class="footer__h3 margin">Prove e aprove Caju você também!</h3>
+            <h2 class="footer__h2 margin" style="color: var(--caju__orange);">Prove e aprove Caju <br> você também!</h2>
             
-            <div class="reconhecimento">
+            <div class="reconhecimento margin--body">
                 <div class="reconhecimento__group">
                     <h5>
                         +500 mil
@@ -499,7 +515,43 @@
          }
         })
     </script>
+
     <style>
+
+        @font-face {
+            font-family: Faktum;
+            src: url('./font/Faktum-Regular.otf') format('opentype');
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: Faktum;
+            src: url('./font/Faktum-Bold.otf') format('opentype');
+            font-weight: bold;
+        }
+        
+        @font-face {
+            font-family: Faktum;
+            src: url('./font/Faktum-SemiBold.otf') format('opentype');
+            font-weight: semi-bold;
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Faktum', sans-serif !important;
+            box-sizing: border-box !important;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 32px;
+        }
+
         :root {
             --caju__red: #E80537;
             --caju__red--hover: #d3002e;
@@ -516,6 +568,8 @@
             font-weight: 500;
             transition: .2s;
             cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
             width: max-content;
         }
 
@@ -548,13 +602,6 @@
             background: rgb(226, 226, 226);
         }
 
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box !important;
-            font-family: Helvetica, sans-serif;
-        }
-
         p {
             line-height: 24px;
         }
@@ -566,23 +613,30 @@
 
         .margin--body {
             width: calc(100vw - 80px);
+            max-width: 1000px;
             margin: auto;
         }
-        
         
         body {
             margin: auto;
         }
 
-
         /* Banner */
 
         header {
-            background-image: url('https://images.unsplash.com/photo-1528123778681-01e39b42808e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            display: flex;
+            flex-direction: column;
+            background-image: url('./src/images/image-backogrund-0.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-         }
-        
+            height: 40vw;
+        }
+         
+        .banner {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
          /* Cartão */
          
         .cartao {
@@ -612,7 +666,6 @@
 
         .flex {
             display: flex;
-            gap: 14px;
         }
 
         .cartao__text {
@@ -629,6 +682,28 @@
 
         /* Beneficios */
 
+        section {
+            position: relative;
+        }
+
+        .beneficios {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .background--beneficio {
+            position: absolute;
+            left: 0;
+            top: -440px;
+            z-index: 0;
+            width: 100%;
+        }
+
+        .section__beneficios {
+            margin-top: 400px;
+            width: 100%;
+        }
+        
         .beneficios__grid {
             display: grid;
             grid-template-columns: 25% 25% 25% 25%;
@@ -646,7 +721,7 @@
         }
         
         .beneficios__calling {
-            font-size: 32px;
+            font-size: 40px;
             font-weight: 700;
             line-height: 38px;
             color: white;
@@ -654,13 +729,14 @@
 
         .beneficios__svg {
             margin-left: 20px;
-            width: 100px;
+            width: 238px;
         }
 
         .beneficios__title {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 40px;
         }
 
         .beneficios__card--title {
@@ -670,6 +746,7 @@
 
         .beneficios__card--h3 {
             height: 42px;
+            font-size: 24px;
         }
 
         .beneficios__card {
@@ -705,13 +782,17 @@
 
         /* Surpreenda */
 
-
         .surpreenda {
+            background: #FFE6EC;
+            width: 100%;
+        }
+        
+        .surpreenda--container {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             justify-items: center;
             gap: 40px;
-            background: #FFE6EC;
+            padding: 80px 0 ;
         }
 
         .surpreenda__icon {
@@ -719,7 +800,7 @@
         }
 
         .surpreenda__img {
-            width: 200px;
+            width: 243px;
         }
 
 
@@ -727,13 +808,15 @@
         
         .premiacoes {
             text-align: center;
+            padding: 80px 0;
+            padding-top: 60px;
         }
 
-        .premiacoes__h3 {
+        .premiacoes__h2 {
             color: var(--caju__red);
-            font-size: 32px;
             width: max-content;
-            margin: 50px auto;
+            margin: auto;
+            margin-bottom: 50px;
             font-weight: bold;
         }
 
@@ -748,28 +831,38 @@
 
         .premiacoes__card {
             width: 100px;
-        }
-
-        .premiacoes__p {
+            height: 100px;
+            margin-bottom: 15px;
 
         }
 
         /* Soluções */
         
-        .solucoes {
+        .section__solucoes {
             background: #5D0216;
+        }
+
+        .solucoes {
             color: white;
             padding: 50px 0;
+        }
+
+        .solucoes__logo-despesas {
+            width: 228px;
         }
 
         .solucoes__grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 40px;
+            margin-bottom: 100px;
         }
 
         .solucoes__img--grid {
             width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            object-fit: cover;
         }
 
         .solucoes__reembolso {
@@ -781,21 +874,31 @@
         .solucoes__h3 { 
             font-size: 30px;
             margin: auto;
+            text-align: center;
             width: max-content;
             margin-bottom: 50px;
         }
 
 
         .solucoes__header { 
-
-        }
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 60px;
+        }   
 
         .solucoes__list--icon { 
             width: 30px;
         }
 
+        .solucoes__list--container { 
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+        }
         .solucoes__list { 
-
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
 
         .solucoes__list { 
@@ -820,19 +923,21 @@
         }
 
         .group__icon {
-            width: 100px;
+            width: 120px;
             margin-right: 20px;
         }
         
         .group__title {
             font-weight: 600;
-            font-size: 18px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
         
         .group__text {
+            font-family: Faktum;
             font-weight: 400;
+            font-size: 16px;
         }
-
 
         /* Descontos */ 
 
@@ -848,6 +953,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-items: center;
+            width: 1000px;
+            margin: auto;
             gap: 40px;
         }
 
@@ -860,8 +967,11 @@
         }
 
         .descontos__group {
-            justify-content: center;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            width: 800px;
+            margin: auto;
         }
 
         .descontos__img {
@@ -895,7 +1005,7 @@
             flex-direction: column;
             gap: 4px;
             padding: 20px;
-            border-radius: 14px;
+            border-radius: 30px;
             height: calc(100% - 80px);
             width: 100%;
             margin: 40px 0;
@@ -918,10 +1028,9 @@
             padding-top: 100px;
         }
 
-        .footer__h3 {
-            color: var(--caju__orange);
-            font-size: 30px;
+        .footer__h2 {
             margin-bottom: 70px;
+            text-align: center;
         }
 
         .reconhecimento {
@@ -954,9 +1063,16 @@
             align-items: center;
             justify-content: space-between;
             background: #FAFAFA;
+            font-size: 12px;
             color: gray;
+            
             padding: 20px 40px;
         }   
+
+        .rodape p {
+            line-height: 18px;
+        }
+
     </style>
 </body>
 </html>
