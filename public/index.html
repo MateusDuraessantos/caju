@@ -6,12 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/index.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body id="body">
     <div id="app">
         <header>
             <nav>
-                <img src="./src/logo.svg" width="60" alt="Logo Caju">
+                <img src="./src/logo.svg" width="115" alt="Logo Caju">
             </nav>
             <div class="banner margin--body">
                 <h1 class="h1__banner">
@@ -26,16 +28,31 @@
             </div>
         </header>
         <main>
-           <!--      <section class="video">
-                <iframe style="width: 100%; height: 800px;" src="./video.html" frameborder="0"></iframe>
-            </section> -->
-        
             <divisao></divisao>
 
             <!-- Cartão -->
 
             <section class="margin--body">
-                <div class="cartao">
+
+                <div class="cartao__row--1">
+                    <span>
+                        <h2 class="cartao__h2">
+                            Cartão Caju, o novo xodó <br> dos seus colaboradores
+                        </h2>
+                        <br>
+                        <p>
+                            Caju Multibenefícios é a forma mais saborosa de oferecer vários benefícios através de um único cartão, com bandeira Visa, aceito em milhões de estabelecimentos no Brasil e no mundo.
+                        </p>
+                        <br>
+                        <p>
+                            Tudo isso no cartão com categorias flexíveis e fixas, que vão de mobilidade até o auxílio-alimentação, com total segurança jurídica para sua empresa.
+                        </p>
+                    </span>
+                    <div class="cartao__video--container">
+                        <iframe class="cartao__video" src="https://www.youtube.com/embed/C4HeeSug3J8?si=FejFVWs7wyZOwwRp?controls=0" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="cartao__row--2">
                     <img class="cartao__img" src="/public/src/cartao-grafismo.svg">
                     <div class="cartao__cont">
                         <span v-for="cartao in cartoes">
@@ -58,7 +75,7 @@
             <!-- Benefícios -->
             
             <section class="section__beneficios">
-                <img class="background--beneficio" src="./src/images/image-backogrund-1.jpg">
+                <img class="background--beneficio" src="./src/images/foto-caju-celular-cartao.png">
                 <div class="beneficios margin--body">
                     <div class="beneficios__red">
                         <div class="beneficios__title">
@@ -68,27 +85,46 @@
                       
                         <div class="beneficios__grid">
                             <div v-for="item in items" class="beneficios__card" :style="`background: #${item.color}`">
-                                <div class="beneficios__card--title">
-                                    <img :src="item.icon" >
+                                <div class="beneficios__card--title ">
+                                    <img :src="'./src/icons/beneficios/' + item.icon" >
                                     <h3 class="beneficios__card--h3">{{ item.title }}</h3>
                                 </div>
                                 <br>
                                 <p class="beneficios__text">{{ item.text }}</p>
-                                <button class="saldo">Saldo flexível</button>
+
+                                <button class="saldo">
+                                    Saldo {{ item.saldo }} <img src="./src/icons/help.svg" alt="ajuda">
+                                    <div class="ballon">
+                                        <arrow></arrow>
+                                        <p v-if="item.saldo == 'flexivel'">
+                                            Saldo exclusivo para a alimentação <br> do trabalhador, conforme a Lei 14.442/2022.
+                                        </p>
+                                        <p v-else>
+                                            O colaborador pode transferir <br> o saldo entre as categorias
+                                        </p>
+                                    </div>
+                                </button>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <button class="btn__red">Quero Oferecer Multibenefícios</button>
+
             </section>
 
             <!--  -->
-            
-            <divisao></divisao>
+
             <divisao></divisao>
 
             <!--  -->
 
             <section class="surpreenda">
+
+                <img  class="surpreenda__grafismo-1" src="./src/vector.svg">
+                <img  class="surpreenda__grafismo-2" src="./src/vector-1.svg">
+
                 <div class="surpreenda--container margin--body">
 
                     <img class="surpreenda__img" src="./src/caju-premiacoes.svg">
@@ -111,20 +147,20 @@
                     
                         <br>
                         <br>
-    
-                        <div style=" display: flex; flex-direction: column; gap: 20px;">
-                            <div class="flex">
-                                <img class="surpreenda__icon" src="./src/icons/shopping-bag.svg">
+
+                        <div class="global-icon__list--container">
+                            <div class="global-icon__list flex">
+                                <img class="global-icon__list--icon" src="./src/icons/shopping-bag.svg">
                                 <p>Em compras, pagando com cajuzinho físico ou virtual</p>
                             </div>
                         
-                            <div class="flex">
-                                <img class="surpreenda__icon" src="./src/icons/comprovantes.svg">
+                            <div class="global-icon__list flex">
+                                <img class="global-icon__list--icon" src="./src/icons/comprovantes.svg">
                                 <p>Em pagamento de boletos pelo aplicativo Caju</p>
                             </div>
                             
-                            <div class="flex">
-                                <img class="surpreenda__icon" src="./src/icons/pagar.svg">
+                            <div class="global-icon__list flex">
+                                <img class="global-icon__list--icon" src="./src/icons/pagar.svg">
                                 <p>Em saques nos caixas eletrônicos da rede Banco 24 Horas.</p>
                             </div>
                         </div>
@@ -172,6 +208,9 @@
             </section>
 
             <section class="section__solucoes">
+
+                <img class="solucoes__grafismo" src="./src/vector-6.svg" alt="Gráfismo">
+                <img class="solucoes__background" src="./src/images/foto-caju-mesa-cartao.png" alt="Foto do cartão Caju">
                 <div class="solucoes margin--body">
                     <div class="solucoes__header">
                         <img class="solucoes__logo-despesas" src="./src/logo-despesas.svg">
@@ -196,31 +235,32 @@
                                 Use o saldo de despesas com o cartão
                                 Caju físico ou virtual para pagar:
                             </p>
-                           <div class="solucoes__list--container">
-                            <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="./src/icons/calendar.svg">
-                                <p>Inscrições em eventos e feiras;</p>
-                            </div>
-                            <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="./src/icons/flight.svg">
-                                <p>Reservas de passagens e <br> hospedagens na viagem corporativa;</p>
-                            </div>
-                            <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="./src/icons/medal.svg">
-                                <p>Cursos, certificações e treinamentos do time;</p>
-                            </div>
-                            <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="./src/icons/pencil.svg">
-                                <p>Materiais gráficos e papelaria para o escritório;</p>
-                            </div>
-                            <div class="solucoes__list flex">
-                                <img class="solucoes__list--icon" src="./src/icons/coffee.svg">
-                                <p>Materiais gráficos e papelaria para o escritório;</p>
-                            </div>
+                            <div class="global-icon__list--container">
+                                <div class="global-icon__list flex">
+                                    <img class="global-icon__list--icon" src="./src/icons/calendar.svg">
+                                    <p>Inscrições em eventos e feiras;</p>
+                                </div>
+                                <div class="global-icon__list flex">
+                                    <img class="global-icon__list--icon" src="./src/icons/flight.svg">
+                                    <p>Reservas de passagens e <br> hospedagens na viagem corporativa;</p>
+                                </div>
+                                <div class="global-icon__list flex">
+                                    <img class="global-icon__list--icon" src="./src/icons/medal.svg">
+                                    <p>Cursos, certificações e treinamentos do time;</p>
+                                </div>
+                                <div class="global-icon__list flex">
+                                    <img class="global-icon__list--icon" src="./src/icons/pencil.svg">
+                                    <p>Materiais gráficos e papelaria para o escritório;</p>
+                                </div>
+                                <div class="global-icon__list flex">
+                                    <img class="global-icon__list--icon" src="./src/icons/coffee.svg">
+                                    <p>Materiais gráficos e papelaria para o escritório;</p>
+                                </div>
                            </div>
                         </div>
                         
-                        <img class="solucoes__img--grid" src="./src/images/image-backogrund-1.jpg">
+                        <img class="solucoes__img--grid" src="./src/images/foto-caju-boleto.png">
+                            
                     </div>
 
                     <!--  -->
@@ -240,7 +280,7 @@
                                     automática de gastos
                                 </p>
                                 <p class="group__text">
-                                    Checagem fácil do tipos de gastos realizados
+                                    Checagem fácil do tipos  de gastos realizados
                                 </p>
                             </div>
                         </div>
@@ -252,7 +292,7 @@
                                     bandeira Visa
                                 </p>
                                 <p class="group__text">
-                                    Se o estabelecimento aceita <br>
+                                    Se o estabelecimento aceita 
                                     Visa, ele aceita o cajuzinho!
                                 </p>
                             </div>
@@ -264,8 +304,8 @@
                                     Resgate automático
                                 </p>
                                 <p class="group__text">
-                                    O saldo restante pode voltar <br>
-                                    automaticamente para a empresa<br>
+                                    O saldo restante pode voltar 
+                                    automaticamente para a 
                                     ou ficar com o colaborador 
                                 </p>
                             </div>
@@ -277,9 +317,7 @@
                                     Resgate automático
                                 </p>
                                 <p class="group__text">
-                                    O saldo restante pode voltar <br>
-                                    automaticamente para a empresa<br>
-                                    ou ficar com o colaborador 
+                                    Uma camada a mais de segurança  com a restrição de tipo de gastos
                                 </p>
                             </div>
                         </div>
@@ -290,9 +328,7 @@
                                     Resgate automático
                                 </p>
                                 <p class="group__text">
-                                    O saldo restante pode voltar <br>
-                                    automaticamente para a empresa<br>
-                                    ou ficar com o colaborador 
+                                    Adicione administradores no ambiente  de Caju Despesas, no Portal do RH
                                 </p>
                             </div>
                         </div>
@@ -307,14 +343,77 @@
 
             <!--  -->
             
-            <section>
-                <div class="descontos">
+            <section class="pacote">
+                <img class="pacote__grafismo" src="./src/vector-two.svg" alt="Gráfismo">
+
+                <div class="margin--body">
+                    <div class="pacote__grid">
+                        <div>
+                            <h2 class="pacote__h2">Cora faz o seu pacote <br> de benefícios ir além <br> com Caju Mais</h2>
+                            <br>
+                            <p>Caju Mais é uma solução exclusiva, que facilita a integração de benefícios oferecidos pela empresa em uma mesma plataforma, para seu RH ter uma visão 360º dos benefícios oferecidos e menos abas abertas na hora de contratar parceiros de qualidade de vida e bem-estar.</p>
+                        </div>
+                        <div class="pacote__column--1">
+                            <div class="pacote__img">
+                                <img  src="./src/images/foto-caju-saude.png">
+                            </div>
+                            <div class="pacote__tag--container">
+                                <div class="pacote__tag">
+                                    <img class="pacote__tag--img" src="./src/gympass.svg" alt="">
+                                </div>
+                                <div class="pacote__tag">
+                                    <img class="pacote__tag--img" src="./src/conexa.svg" alt="">
+                                </div>
+                                <div class="pacote__tag">
+                                    <img class="pacote__tag--img" src="./src/psicologiaviva.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                    <h3 class="pacote__h3">
+                        Todos os benefícios que o colaborador deseja, <br> com a facilidade e integração que o RH precisa 
+                    </h3>  
+
+                    <div class="pacote--container global-icon__list--container">
+                        
+                        <div class="pacote-v-for" v-for="colaborador in colaboradores">
+                            <div class="global-icon__list pacote--icon flex">
+                                <img class="global-icon__list--icon" :src="'./src/icons/colaboradores/' + colaborador.icon">
+                                <p style="font-size: 20px; font-weight: 600;">{{ colaborador.title }}</p>
+                            </div>
+                            <p>{{ colaborador.text }}</p>
+                        </div>
+
+                    </div>
+
+                    <div class="margin">
+                        <button class="btn__white"> Ter Caju Mais na minha empresa</button>
+                    </div>
+
+                </div>                
+            </section>
+            
+            <!--  -->
+
+            <section class="descontos">
+                <div class="margin--body">
+                    <img class="descontos__grafismo" src="./src/vector-3.svg" >
                    <div class="descontos__grid">
-                       <img class="descontos__img" src="./src/ticket.svg" alt="">
+                        <div class="descontos__img">
+                            <img  src="./src/images/foto-caju-cartao-feira.png">
+                        </div>
                         <div class="descontos__group--1">
-                            <h3 class="descontos__h3">
+                            <h2>
                                 Só quem contrata Caju com a Cora, tem acesso aos melhores descontos no Feirinha da Caju
-                            </h3>
+                            </h2>
                             <br>
                             <p>
                                 O feirinha é nosso espaço com descontos exclusivos de
@@ -328,27 +427,35 @@
                         <h3 class="descontos__h3">
                             Dezenas de cupons <br> para os colaboradores <br> desfrutarem
                         </h3>
-                        <img src="./src/ticket.svg" alt="">
+                        <img src="./src/ticket.svg">
                     </div>
 
                     <div class="descontos__group flex">
-                        <img src="./src/notebook.svg" alt="">
+                        <img src="./src/notebook.svg">
                         <h3 class="descontos__h3">
                             Mais economia em <br> produtos e serviços <br> para sua empresa
                         </h3>
                     </div>
 
                     <br><br><br><br>                        
-                    <button class="btn__white margin">Quero descontos no Feirinha</button>
+
                 </div>
+                
+                <button class="btn__white margin">Quero descontos no Feirinha</button>
+                
             </section>
             
             <!--  -->
 
             <section class="contato">
+                <img class="contato__grafismo" src="./src/vector-4.svg">
                 <div class="contato__container margin--body">
-                    <h3 class="contato__h3">Vamos entrar <br> em contato!</h3>
-        
+                    <span>
+                        <h3 class="contato__h3">Garanta já os  <br> multibenefícios <br> mais saborosos <br> na sua empresa!</h3>
+                        <br>
+                        <p>Preencha o formulário de interesse:</p>
+                    </span>
+
                     <div class="form">
                         <p>Nome completo:</p>
                         <input class="form__input" type="text">
@@ -379,6 +486,9 @@
         </main>
 
         <footer class="footer">
+
+            <img class="footer__grafismo" src="./src/vector-5.svg" >
+
             <h2 class="footer__h2 margin" style="color: var(--caju__orange);">Prove e aprove Caju <br> você também!</h2>
             
             <div class="reconhecimento margin--body">
@@ -407,20 +517,16 @@
                     </p>
                 </div>
                 <div class="reconhecimento__group">
+                    <img src="./src/top-of-mind.png">
                     <h5>
-                        +4 milhões
+                        Top 5 no ranking <br> Top of Mind 2023
                     </h5>
-                    <p>
-                        estabelecimentos aceitam Caju
-                    </p>
                 </div>
                 <div class="reconhecimento__group">
+                    <img src="./src/zendesk.svg">
                     <h5>
-                        +21 mil
+                        CX Awards <br> Zendesk 2022
                     </h5>
-                    <p>
-                        empresas oferecem Caju
-                    </p>
                 </div>
             </div>
 
@@ -436,643 +542,6 @@
         </footer>
     </div>
 
-    <script>
-        new Vue( {
-         el: '#app',
-         data: {
-            cartoes: [
-                {
-                    title: 'Custo zero para experimentar',
-                    icon: 'https://triibo.com.br/wp-content/uploads/2021/11/pngtree-vector-star-icon-png-image_1577370.jpg',
-                    text: 'Prove da versatilidade dos multibenefícios Caju com custo zero para contratar',
-                },
-                {
-                    title: 'Piscou, chegou!',
-                    icon: 'https://triibo.com.br/wp-content/uploads/2021/11/pngtree-vector-star-icon-png-image_1577370.jpg',
-                    text: 'Os cartões são entregues em até 3 dias úteis em São Paulo (capital) e até 5 dias úteis nas demais cidades do Brasil',
-                },
-                {
-                    title: 'Avisa que é Visa! ',
-                    icon: 'https://triibo.com.br/wp-content/uploads/2021/11/pngtree-vector-star-icon-png-image_1577370.jpg',
-                    text: 'O cartão Caju é bandeira Visa, passa na função crédito e é aceito em milhões de estabelecimentos ao redor do mundo ',
-                },
-                {
-                    title: 'Segurança jurídica garantida',
-                    icon: 'https://triibo.com.br/wp-content/uploads/2021/11/pngtree-vector-star-icon-png-image_1577370.jpg',
-                    text: 'Oferecemos categorias de saldo fixas, para ficar nos conformes com o PAT',
-                },
-            ],
-            items: [
-                {
-                    title: 'Mobilidade', 
-                    icon: '.svg', 
-                    text: 'Saldo exclusivo para o transporte dos colaboradores, que pode ser usado para pagar a passagem de ônibus dentro e fora da cidade, metrô, aluguel de bicicletas e até aquelas corridas em carro de aplicativo nos dias de chuva.' ,
-                    color: "FFE082"
-                },
-                {
-                    title: 'Auxílio home office', 
-                    icon: '.svg', 
-                    text: 'Saldo para pagar despesas de casa, como a conta de energia, internet, mobília para o escritório - com direito a aquela cadeira bacana para dar jeito na coluna! ', 
-                    color: "C1ABE6",
-                },
-                {
-                    title: 'Educação', 
-                    icon: '.svg', 
-                    text: 'Saldo para aprender um novo idioma, fazer cursos e até pagar as mensalidades daquele curso superior tão ', 
-                    color: "F59BC5",
-                },
-                {
-                    title: 'Saúde', 
-                    icon: '.svg', 
-                    text: 'Saldo para cuidar do bemestar, que passa em academias, farmácias, laboratórios de exames e até atendimentos psicológicos para ficar zen. ', 
-                    color: "9BE59B",
-                },
-                {
-                    title: 'Cultura', 
-                    icon: '.svg', 
-                    text: 'Saldo para utilizar nos momentos de lazer, como cinema, shows, livrarias, teatros e até no pagamento de streamings para maratonar as séries favoritas. ', 
-                    color: "74CFE8",
-                },
-                {
-                    title: 'Auxílio alimentação', 
-                    icon: '.svg', 
-                    text: 'Saldo versátil para utilizar nos restaurantes preferidos ou nas compras do mês no supermercado. ', 
-                    color: "F89682",
-                },
-                {
-                    title: 'Alimentação', 
-                    icon: '.svg', 
-                    text: 'Saldo para usar no mercadinho perto de casa ou no hipermercado mais longe, que vende as coisinhas que só se', 
-                    color: "FFC16B",
-                },
-                {
-                    title: 'Refeição', 
-                    icon: '.svg', 
-                    text: 'Saldo para cuidar do bemestar, que passa em academias, farmácias, laboratórios de exames e até atendimentos psicológicos para ficar zen.',
-                    color: "F18184",
-                }
-             ]
-         }
-        })
-    </script>
-
-    <style>
-
-        @font-face {
-            font-family: Faktum;
-            src: url('./font/Faktum-Regular.otf') format('opentype');
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: Faktum;
-            src: url('./font/Faktum-Bold.otf') format('opentype');
-            font-weight: bold;
-        }
-        
-        @font-face {
-            font-family: Faktum;
-            src: url('./font/Faktum-SemiBold.otf') format('opentype');
-            font-weight: semi-bold;
-        }
-        
-        * {
-            padding: 0;
-            margin: 0;
-            font-family: 'Faktum', sans-serif !important;
-            box-sizing: border-box !important;
-        }
-
-        h2 {
-            font-size: 40px;
-            font-weight: bold;
-        }
-
-        h3 {
-            font-size: 32px;
-        }
-
-        :root {
-            --caju__red: #E80537;
-            --caju__red--hover: #d3002e;
-            --caju__orange: #FF7500;
-            --caju__orange--hover: #db6600;
-            --radius__strong: 50px;
-        }
-        
-        .btn__red, .btn__orange, .btn__white {
-            padding: 14px 20px;
-            border: none;
-            color: white;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: .2s;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            width: max-content;
-        }
-
-        .btn__red:hover, .btn__orange:hover {
-            transition: .2s;
-        }
-
-        .btn__red {
-            background: var(--caju__red);
-        }
-
-        .btn__orange {
-            background: var(--caju__orange);
-        }
-
-        .btn__white {
-            background: white;
-            color: var(--caju__red);
-        }
-
-        .btn__red:hover {
-            background: var(--caju__red--hover);
-        }
-
-        .btn__orange:hover {
-            background: var(--caju__orange--hover);
-        }
-        
-        .btn__white:hover {
-            background: rgb(226, 226, 226);
-        }
-
-        p {
-            line-height: 24px;
-        }
-
-        divisao {
-            display: block;
-            padding: 100px 0;
-        }
-
-        .margin--body {
-            width: calc(100vw - 80px);
-            max-width: 1000px;
-            margin: auto;
-        }
-        
-        body {
-            margin: auto;
-        }
-
-        /* Banner */
-
-        header {
-            display: flex;
-            flex-direction: column;
-            background-image: url('./src/images/image-backogrund-0.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 40vw;
-        }
-         
-        .banner {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-         /* Cartão */
-         
-        .cartao {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 40px;
-        }
-         
-        .cartao__img {
-            width: 100%;
-        }
-
-
-        .cartao__h5 {
-            color: var(--caju__red);
-            font-size: 20px;
-        }
-
-        .cartao__icon {
-            width: 24px; 
-        }
-
-        .margin {
-            margin: auto;
-            width: max-content;
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        .cartao__text {
-            font-size: 14px;
-        }
-
-        .cartao__cont {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 14px;
-            height: 100%;
-        }
-
-        /* Beneficios */
-
-        section {
-            position: relative;
-        }
-
-        .beneficios {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .background--beneficio {
-            position: absolute;
-            left: 0;
-            top: -440px;
-            z-index: 0;
-            width: 100%;
-        }
-
-        .section__beneficios {
-            margin-top: 400px;
-            width: 100%;
-        }
-        
-        .beneficios__grid {
-            display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
-            align-items: center;
-            justify-items: center;
-            width: 100%;
-        }
-        
-        .beneficios__red {
-            width: 100%;
-            border-radius: 30px;
-            background: #E80537;
-            height: 550px;
-            padding: 28px;
-        }
-        
-        .beneficios__calling {
-            font-size: 40px;
-            font-weight: 700;
-            line-height: 38px;
-            color: white;
-        }
-
-        .beneficios__svg {
-            margin-left: 20px;
-            width: 238px;
-        }
-
-        .beneficios__title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .beneficios__card--title {
-            display: flex;
-            gap: 6px;
-        }
-
-        .beneficios__card--h3 {
-            height: 42px;
-            font-size: 24px;
-        }
-
-        .beneficios__card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            border: 8px;
-            border-radius: 14px;
-            padding: 12px;
-            width: calc(100% - 20px);
-            margin-bottom: 20px;
-            height: 240px;
-        }
-        
-        .beneficios__text {
-            font-size: 14px;
-            font-weight: 300;
-            overflow: auto;
-            height: 52%;
-        }
-
-        .saldo {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: white;
-            color: black;
-            height: max-content;
-            border: none;
-            border-radius: 6px;
-            padding: 4px 6px;
-        }
-
-        /* Surpreenda */
-
-        .surpreenda {
-            background: #FFE6EC;
-            width: 100%;
-        }
-        
-        .surpreenda--container {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            justify-items: center;
-            gap: 40px;
-            padding: 80px 0 ;
-        }
-
-        .surpreenda__icon {
-            width: 40px;
-        }
-
-        .surpreenda__img {
-            width: 243px;
-        }
-
-
-        /* Premiações */
-        
-        .premiacoes {
-            text-align: center;
-            padding: 80px 0;
-            padding-top: 60px;
-        }
-
-        .premiacoes__h2 {
-            color: var(--caju__red);
-            width: max-content;
-            margin: auto;
-            margin-bottom: 50px;
-            font-weight: bold;
-        }
-
-        .premiacoes__grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr 1fr;
-            gap: 40px;
-            width: 80%;
-            min-width: 800px;
-            margin: auto;
-        }
-
-        .premiacoes__card {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 15px;
-
-        }
-
-        /* Soluções */
-        
-        .section__solucoes {
-            background: #5D0216;
-        }
-
-        .solucoes {
-            color: white;
-            padding: 50px 0;
-        }
-
-        .solucoes__logo-despesas {
-            width: 228px;
-        }
-
-        .solucoes__grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
-            margin-bottom: 100px;
-        }
-
-        .solucoes__img--grid {
-            width: 100%;
-            height: 100%;
-            border-radius: 40px;
-            object-fit: cover;
-        }
-
-        .solucoes__reembolso {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .solucoes__h3 { 
-            font-size: 30px;
-            margin: auto;
-            text-align: center;
-            width: max-content;
-            margin-bottom: 50px;
-        }
-
-
-        .solucoes__header { 
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-bottom: 60px;
-        }   
-
-        .solucoes__list--icon { 
-            width: 30px;
-        }
-
-        .solucoes__list--container { 
-            display: flex;
-            flex-direction: column;
-            gap: 21px;
-        }
-        .solucoes__list { 
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .solucoes__list { 
-
-        }
-
-        .solucoes__list { 
-
-        }
-
-
-        .solucoes__group {
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            flex-wrap: wrap;
-        }
-
-        .group__container {
-            max-width: 400px;
-        }
-
-        .group__icon {
-            width: 120px;
-            margin-right: 20px;
-        }
-        
-        .group__title {
-            font-weight: 600;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .group__text {
-            font-family: Faktum;
-            font-weight: 400;
-            font-size: 16px;
-        }
-
-        /* Descontos */ 
-
-        .descontos {
-            display: flex;
-            flex-direction: column;
-            padding: 80px 0;
-            background: var(--caju__red);
-            color: white;
-        }
-
-        .descontos__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            justify-items: center;
-            width: 1000px;
-            margin: auto;
-            gap: 40px;
-        }
-
-        .descontos__h3 {
-            font-size: 28px;
-        }
-
-        .descontos__group--1 {
-            width: 80%;
-        }
-
-        .descontos__group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 800px;
-            margin: auto;
-        }
-
-        .descontos__img {
-            border-radius: var(--radius__strong);
-        }
-
-        /* Contato */
-
-        .contato {
-            background-image: url('https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 100%;
-            color: white;
-        }
-        
-        .contato__container {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            height: max-content;
-            justify-items: center;
-        }
-
-        .contato__h3 {
-            margin-top: 200px;
-            font-size: 50px;
-        }
-
-        .form {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding: 20px;
-            border-radius: 30px;
-            height: calc(100% - 80px);
-            width: 100%;
-            margin: 40px 0;
-            background: var(--caju__orange);
-        }
-
-        .form__input {
-            border-radius: 6px;
-            border: none;
-            height: 40px;
-        }
-
-        .form .btn__red {
-            width: 100%;
-        }
-
-        /* Footer */
-
-        footer {
-            padding-top: 100px;
-        }
-
-        .footer__h2 {
-            margin-bottom: 70px;
-            text-align: center;
-        }
-
-        .reconhecimento {
-            padding-bottom: 100px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 100px;
-        }
-
-        .reconhecimento__group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .reconhecimento__group h5 {
-            color: var(--caju__red);
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .reconhecimento__group p {
-            font-size: 18px;
-            font-weight: bold;   
-        }
-
-        .rodape {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #FAFAFA;
-            font-size: 12px;
-            color: gray;
-            
-            padding: 20px 40px;
-        }   
-
-        .rodape p {
-            line-height: 18px;
-        }
-
-    </style>
+    <script src="./script.js"></script>
 </body>
 </html>
