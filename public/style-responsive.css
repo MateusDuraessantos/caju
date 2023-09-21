@@ -1,0 +1,152 @@
+@media screen and (max-width: 1000px) {
+    .surpreenda--container, .premiacoes__grid, .pacote__grid, .solucoes__header, .beneficios__title,
+     .descontos__grid, .descontos__group, .reconhecimento, .contato__container, .cartao__row--1, .cartao__row--2, .solucoes__grid, .pacote__column--1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+    
+    h3 {
+        font-size: 24px;
+    }
+
+    br {
+        display: none;
+    }
+
+    * {
+        text-wrap: wrap !important;
+    }
+
+    .contato__grafismo, .surpreenda__grafismo-1 {
+        display: none;
+    }
+
+    .margin--body {
+        width: calc(100% - 40px);
+    }
+
+    /* cartaoo */
+    .cartao__img {
+        width: 200px;
+        margin-top: 50px;
+    }
+
+    .cartao__cont {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+    }    
+    
+    /*  */
+    
+    .beneficios__text {
+        margin-top: 20px;
+    }
+
+    .beneficios__red{
+        height: 828px;
+    }
+
+    .section__beneficios {
+        gap: 80px;
+    }
+
+    .beneficios__grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+    .beneficios__title {
+        gap: 20px;
+        text-align: center;
+    }
+    .beneficios__card {
+        min-width: 260px;
+        margin-bottom: initial;
+    }
+
+    /* contato */
+
+
+
+    /* surpreenda */
+
+
+
+    /* premiacoes */
+
+    .premiacoes__grid {
+        min-width: initial;
+        gap: 40px;
+        margin-bottom: 54px;
+    }
+
+    .premiacoes__card {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+    }
+
+    /*  */
+
+    .solucoes__header {
+        gap: 30px;
+        padding: 40px;
+    }
+
+    /* pacotes */
+
+    .pacote__h3 {
+        margin-top: 70px;
+    }
+
+    .pacote__img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: initial;
+    }
+
+    .pacote__img img {
+        width: initial;
+        height: 100%;
+    }
+
+    .pacote__grid {
+        gap: 40px;
+    }
+
+    .pacote--container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .pacote__tag--container {
+        left: initial;
+        position: absolute !important;
+        top: 114px;
+    }
+
+    .pacote-v-for {
+        min-width: initial;
+        max-width: initial;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    
+}
+
+@media screen and (max-width: 400px) {
+    
+}

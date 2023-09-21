@@ -60,7 +60,7 @@ new Vue( {
                color: "74CFE8",
            },
            {
-               title: 'Auxílio alimentação', 
+               title: 'Auxílio-alimentação', 
                saldo: 'fixo',
                icon: 'auxilio-alimentacao.svg', 
                text: 'Saldo versátil para utilizar nos restaurantes preferidos ou nas compras do mês no supermercado. ', 
