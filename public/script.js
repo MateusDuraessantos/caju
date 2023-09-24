@@ -1,4 +1,4 @@
-new Vue( {
+new Vue({
     el: '#app',
     data: {
        cartoes: [
@@ -114,4 +114,4 @@ new Vue( {
            },
         ],
     },
-   })
+})

@@ -94,11 +94,6 @@ p {
     letter-spacing: 0.3px;
 }
 
-divisao {
-    display: block;
-    padding: 60px 0;
-}
-
 body {
     overflow-x: hidden;
 }
@@ -161,6 +156,10 @@ header {
 }
  /* Cartão */
  
+.cartao {
+    padding: 100px 0 60px 0;
+}
+
 .cartao__video--container {
     position: relative;
     display: flex;
@@ -247,6 +246,7 @@ section {
     gap: 200px;
     margin-top: 400px;
     width: 100%;
+    padding-bottom: 80px;
 }
 
 .beneficios__grid {
@@ -359,7 +359,7 @@ section {
     z-index: 2;
 }
 
-arrow {
+.arrow {
     position: absolute;
     display: block;
     background: #252525;
@@ -408,7 +408,15 @@ arrow {
 .surpreenda__img {
     width: 243px;
 }
+.surpreenda__padding--bottom {
+    padding-bottom: 40px;
+}
 
+.surpreenda__list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 /* Premiações */
 
@@ -557,10 +565,10 @@ arrow {
     color: white;
 }
 
-.pacote div {
+/* .pacote div {
     position: relative;
     z-index: 1;
-}
+} */
 
 .pacote__grafismo {
     position: absolute;
@@ -620,6 +628,7 @@ arrow {
 .pacote__img img {
     border-radius: 40px;
     width: 100%;
+    height: 100%;
     object-fit: cover;
 } 
 

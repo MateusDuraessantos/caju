@@ -29,49 +29,46 @@
             </div>
         </header>
         <main>
-            <divisao></divisao>
-
             <!-- Cartão -->
 
             <section class="margin--body">
 
-                <div class="cartao__row--1">
-                    <span>
-                        <h2 class="cartao__h2">
-                            Cartão Caju, o novo xodó <br> dos seus colaboradores
-                        </h2>
-                        <br>
-                        <p>
-                            Caju Multibenefícios é a forma mais saborosa de oferecer vários benefícios através de um único cartão, com bandeira Visa, aceito em milhões de estabelecimentos no Brasil e no mundo.
-                        </p>
-                        <br>
-                        <p>
-                            Tudo isso no cartão com categorias flexíveis e fixas, que vão de mobilidade até o auxílio-alimentação, com total segurança jurídica para sua empresa.
-                        </p>
-                    </span>
-                    <div class="cartao__video--container">
-                        <iframe class="cartao__video" src="https://www.youtube.com/embed/C4HeeSug3J8?si=FejFVWs7wyZOwwRp?controls=0" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="cartao__row--2">
-                    <img class="cartao__img" src="/public/src/cartao-grafismo.svg">
-                    <div class="cartao__cont">
-                        <span v-for="cartao in cartoes">
-                            <div class="flex">
-                                <img class="cartao__icon" :src="cartao.icon" alt>
-                                <h5 class="cartao__h5">{{ cartao.title }}</h5>
-                            </div>
-                            <p class="cartao__text">
-                                {{ cartao.text }}
+                <div class="cartao">
+                    <div class="cartao__row--1">
+                        <span>
+                            <h2 class="cartao__h2">
+                                Cartão Caju, o novo xodó <br> dos seus colaboradores
+                            </h2>
+                            <br>
+                            <p>
+                                Caju Multibenefícios é a forma mais saborosa de oferecer vários benefícios através de um único cartão, com bandeira Visa, aceito em milhões de estabelecimentos no Brasil e no mundo.
+                            </p>
+                            <br>
+                            <p>
+                                Tudo isso no cartão com categorias flexíveis e fixas, que vão de mobilidade até o auxílio-alimentação, com total segurança jurídica para sua empresa.
                             </p>
                         </span>
+                        <div class="cartao__video--container">
+                            <iframe class="cartao__video" autoplay="1" src="https://www.youtube.com/embed/C4HeeSug3J8?si=FejFVWs7wyZOwwRp?autoplay=1&mute=1" title="YouTube video player"></iframe>
+                        </div>
                     </div>
+                    <div class="cartao__row--2">
+                        <img class="cartao__img" src="/public/src/cartao-grafismo.svg">
+                        <div class="cartao__cont">
+                            <span v-for="cartao in cartoes">
+                                <div class="flex">
+                                    <img class="cartao__icon" :src="cartao.icon" alt>
+                                    <h5 class="cartao__h5">{{ cartao.title }}</h5>
+                                </div>
+                                <p class="cartao__text">
+                                    {{ cartao.text }}
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+
                 </div>
             </section>
-            
-            <!--  -->
-
-            <divisao></divisao>
 
             <!-- Benefícios -->
             
@@ -96,7 +93,7 @@
                                 <button class="saldo">
                                     Saldo {{ item.saldo }} <img src="./src/icons/help.svg" alt="ajuda">
                                     <div class="ballon">
-                                        <arrow></arrow>
+                                        <div class="arrow"></div>
                                         <p v-if="item.saldo == 'flexivel'">
                                             Saldo exclusivo para a alimentação <br> do trabalhador, conforme a Lei 14.442/2022.
                                         </p>
@@ -117,10 +114,6 @@
 
             <!--  -->
 
-            <divisao></divisao>
-
-            <!--  -->
-
             <section class="surpreenda">
 
                 <img  class="surpreenda__grafismo-1" src="./src/vector.svg">
@@ -131,25 +124,21 @@
                     <img class="surpreenda__img" src="./src/caju-premiacoes.svg">
     
                    <div>
-                        <h2 style="color: var(--caju__red)">
+                        <h2 class="surpreenda__padding--bottom" style="color: var(--caju__red); ">
                             Surpreenda seu time com um <br>
                             saldo no Caju Premiações 
                         </h2>
                         
-                        <br>
-                        <br>
-                        <p>
+                        <p class="surpreenda__padding--bottom">
                             Caju Premiações é a solução perfeita para presentear seus colaboradores com um saldo extra no cajuzinho, sem perder a segurança jurídica e sem misturar com o saldo de multibenefícios! 
                         </p>
                     
-                        <p>
+                        <p class="surpreenda__padding--bottom">
                             Na mesma plataforma de gestão de multibenefícios, a empresa pode pagar um saldo especial para o colaborador usar:    
                         </p>
                     
-                        <br>
-                        <br>
 
-                        <div class="global-icon__list--container">
+                        <div class="surpreenda__list">
                             <div class="global-icon__list flex">
                                 <img class="global-icon__list--icon" src="./src/icons/shopping-bag.svg">
                                 <p>Em compras, pagando com cajuzinho físico ou virtual</p>
@@ -211,7 +200,7 @@
             <section class="section__solucoes">
 
                 <img class="solucoes__grafismo" src="./src/vector-6.svg" alt="Gráfismo">
-                <img class="solucoes__background" src="./src/images/foto-caju-mesa-cartao.png" alt="Foto do cartão Caju">
+                <img class="solucoes__background" src="./src/images/foto-caju-mesa-cartao.jpg" alt="Foto do cartão Caju">
                 <div class="solucoes margin--body">
                     <div class="solucoes__header">
                         <img class="solucoes__logo-despesas" src="./src/logo-despesas.svg">
@@ -356,7 +345,7 @@
                         </div>
                         <div class="pacote__column--1">
                             <div class="pacote__img">
-                                <img  src="./src/images/foto-caju-saude.png">
+                                <img  src="./src/images/foto-caju-saude.jpg">
                             </div>
                             <div class="pacote__tag--container">
                                 <div class="pacote__tag">
