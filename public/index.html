@@ -2,20 +2,21 @@
 <html lang="pt-bt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caju</title>
+    <!-- Logo Aba -->
+    <link rel="shortcut icon" type="imagex/png" href="./src/logo-aba.svg">
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/style-responsive.css">
     <!-- VueJs -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-
-    
 </head>
 
 <body id="body">
     <div id="app">
         <header>
+            <img class="header__background" src="./src/images/foto-caju-cartao.png">
             <nav>
                 <img src="./src/logo.svg" width="100" alt="Logo Caju">
                 <img src="./src/mais.svg" width="20" alt="plus">
@@ -53,33 +54,22 @@
                                 Tudo isso no cartão com categorias flexíveis e fixas, que vão de mobilidade até o auxílio-alimentação, com total segurança jurídica para sua empresa.
                             </p>
                         </span>
-                        <div class="cartao__video--container">
-                            <iframe 
-                                class="cartao__video" 
-                                id="video"
-                                src="https://www.youtube.com/embed/C4HeeSug3J8?enablejsapi=1&html5=1&mute=1"
-                                frameborder="0"
-                                title="YouTube video player"
-                                allowfullscreen
-                            >
-                            </iframe>
-
-                            <div class="youtube">
-                                <div class="loading__animation">
-                                    <div class="loading__btn">
-                                    </div>
-                                    <p class="loading__text">Carregando <span id="dot"></span></p>
-                                </div>
-
-                                <button class="button youtube--play" id="play-button">
-                                    <img class="youtube-svg" src="./src/play.svg">
-                                    <use xlink:href="#play-button-shape">
-                                </button>
-                                <!-- <button class="button" id="pause-button">
-                                    <use xlink:href="#pause-button-shape">
-                                </button> -->
-                              </div>
-                        </div>
+                        <iframe 
+                            class="cartao__video" 
+                            src="https://www.youtube-nocookie.com/embed/C4HeeSug3J8"
+                            frameborder="0"
+                            title="YouTube video player"
+                            allow="
+                                accelerometer;
+                                autoplay;
+                                clipboard-write;
+                                encrypted-media;
+                                gyroscope;
+                                picture-in-picture;
+                                web-share"
+                            allowfullscreen
+                        >
+                        </iframe>
                     </div>
                     <div class="cartao__row--2">
                         <img class="cartao__img" src="./src/cartao-grafismo.svg">
@@ -96,31 +86,30 @@
                             <button class="cartao__btn btn__red">Pedir Cartão Caju</button>
                         </div>
                     </div>
-
                 </div>
             </section>
 
             <!-- Benefícios -->
             
-            <section class="section__beneficios">
+            <section class="section__beneficios ">
                 <img class="background--beneficio" src="./src/images/foto-caju-celular-cartao.png">
                 <div class="beneficios margin--body">
                     <div class="beneficios__red">
                         <div class="beneficios__title">
                             <img class="beneficios__svg"  src="./src/caju-beneficios.svg">
-                            <p class="beneficios__calling">Chega mais, vem conhecer <br> os multibenefícios! </p>
+                            <h2 class="beneficios__calling">Chega mais, vem conhecer <br> os multibenefícios! </h2>
                         </div>
                       
                         <div class="beneficios__grid">
-                            <div v-for="item in items" class="beneficios__card" :style="`background: #${item.color}`">
-                                <div class="beneficios__card--title ">
+                            <div v-for="item in items" class="beneficios__card reponsive-1000" @click="openCard" :style="`background: #${item.color}`">
+                                <div class="beneficios__card--title" >
                                     <img :src="'./src/icons/beneficios/' + item.icon" >
                                     <h3 class="beneficios__card--h3">{{ item.title }}</h3>
                                 </div>
                                 <br>
                                 <p class="beneficios__text">{{ item.text }}</p>
 
-                                <button class="saldo">
+                                <button class="beneficios__saldo">
                                     Saldo {{ item.saldo }} <img src="./src/icons/help.svg" alt="ajuda">
                                     <div class="ballon">
                                         <div class="arrow"></div>
@@ -235,10 +224,9 @@
                     <div class="solucoes__header">
                         <img class="solucoes__logo-despesas" src="./src/logo-despesas.svg">
                         <div>
-                            <h2>
+                            <h2 class="solucoes__h2">
                                 Solução para sua empresa evoluir a gestão e controle de gastos
                             </h2>
-                            <br>
                             <p>
                                 Ganhe mais visibilidade e uma gestão centralizada das despesas corporativas, com informações detalhadas, fluxos de pagamento otimizados e um único cartão bandeira Visa.
                             </p>
@@ -407,7 +395,7 @@
                         <div class="pacote-v-for" v-for="colaborador in colaboradores">
                             <div class="global-icon__list pacote--icon flex">
                                 <img class="global-icon__list--icon" :src="'./src/icons/colaboradores/' + colaborador.icon">
-                                <p style="font-size: 20px; font-weight: 600;">{{ colaborador.title }}</p>
+                                <p class="pacote__title">{{ colaborador.title }}</p>
                             </div>
                             <p>{{ colaborador.text }}</p>
                         </div>
@@ -431,10 +419,9 @@
                             <img  src="./src/images/foto-caju-cartao-feira.png">
                         </div>
                         <div class="descontos__group--1">
-                            <h2>
+                            <h2 class="descontos__h2">
                                 Só quem contrata Caju com a Cora, tem acesso aos melhores descontos no Feirinha da Caju
                             </h2>
-                            <br>
                             <p>
                                 O feirinha é nosso espaço com descontos exclusivos de
                                 marcas parceiras no aplicativo Caju. São cupons de diversos
@@ -450,7 +437,7 @@
                         <img src="./src/ticket.svg">
                     </div>
 
-                    <div class="descontos__group flex">
+                    <div class="descontos__group descontos__group--invert flex">
                         <img src="./src/notebook.svg">
                         <h3 class="descontos__h3">
                             Mais economia em <br> produtos e serviços <br> para sua empresa
@@ -498,8 +485,7 @@
                         <p>Qual solução você está buscando?</p>
                         <input class="form__input" type="text">
                         <!--  -->
-                        <br>
-                        <button class="btn__red">Enviar</button>
+                        <button class="form__btn__red btn__red">Enviar</button>
                     </div>
                 </div>
             </section>
@@ -513,40 +499,40 @@
             
             <div class="reconhecimento margin--body">
                 <div class="reconhecimento__group">
-                    <h5>
+                    <h2 class="reconhecimento__h2">
                         +500 mil
-                    </h5>
+                    </h2>
                     <p>
                         pessoas usam Caju
                     </p>
                 </div>
                 <div class="reconhecimento__group">
-                    <h5>
+                    <h2 class="reconhecimento__h2">
                         +4 milhões
-                    </h5>
+                    </h2>
                     <p>
                         estabelecimentos aceitam Caju
                     </p>
                 </div>
                 <div class="reconhecimento__group">
-                    <h5>
+                    <h2 class="reconhecimento__h2">
                         +21 mil
-                    </h5>
+                    </h2>
                     <p>
                         empresas oferecem Caju
                     </p>
                 </div>
                 <div class="reconhecimento__group">
                     <img src="./src/top-of-mind.png">
-                    <h5>
+                    <h2 class="reconhecimento__h2">
                         Top 5 no ranking <br> Top of Mind 2023
-                    </h5>
+                    </h2>
                 </div>
                 <div class="reconhecimento__group">
                     <img src="./src/zendesk.svg">
-                    <h5>
+                    <h2 class="reconhecimento__h2">
                         CX Awards <br> Zendesk 2022
-                    </h5>
+                    </h2>
                 </div>
             </div>
 
@@ -562,9 +548,8 @@
         </footer>
     </div>
 
-    <script src="./script-data.js">//Informações de cards e listas</script>
+    <script src="./scripts-vue.js">//Informações de cards e listas</script>
 
-    <script src="./script-youtube.js">//Script para alterar o botão de player do youtube</script> 
 
 </body>
 

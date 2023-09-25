@@ -1,5 +1,25 @@
 new Vue({
     el: '#app',
+    methods: {
+        openCard(event){
+            let actived = document.querySelector('.itIsActived')
+            elementEvent = event.currentTarget.classList
+            if(!actived && elementEvent[1] == 'reponsive-1000') {
+                elementEvent.remove('reponsive-1000')
+                elementEvent.add('itIsActived')
+            }
+            else if (actived && event.currentTarget.classList[1] != 'itIsActived') {
+                actived.classList.add("reponsive-1000")
+                actived.classList.remove("itIsActived")
+                elementEvent.add('itIsActived')
+                elementEvent.remove('reponsive-1000')
+            }
+            else {
+                elementEvent.add('reponsive-1000')
+                elementEvent.remove('itIsActived')
+            }
+        }
+    },
     data: {
        cartoes: [
            {

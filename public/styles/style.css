@@ -47,18 +47,32 @@ body::-webkit-scrollbar-thumb {
     box-sizing: border-box !important;
 }
 
-h2, h3 {
-    width: 100% !important;
+body {
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 3rem;
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
 h3 {
-    font-size: 32px;
+    font-size: 2rem;
 }
+
+p {
+    font-size: 1rem;
+}
+
+h1, h2, h3 {
+    width: 100%;
+}
+
 
 
 :root {
@@ -117,10 +131,6 @@ p {
     letter-spacing: 0.3px;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 .margin--body {
     width: calc(100% - 80px);
     max-width: 1160px;
@@ -161,19 +171,25 @@ body {
 /* Banner */
 
 header {
+    position: relative;
     display: flex;
     flex-direction: column;
-    background-image: url('../src/images/foto-caju-cartao.png');
-    background-repeat: no-repeat;
-    background-position: 0 -100px;
-    background-size: cover;
     height: 50vw; 
     width: 100%;
     min-height: 636px;
     max-height: 80vh;
+    background: black;
+}
+.header__background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
 }
 
 nav {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     background: white;
@@ -183,6 +199,8 @@ nav {
 }
 
 .banner {
+    position: relative;
+    z-index: 1;
     font-size: 22px;
     color: white;
     display: flex;
@@ -205,19 +223,12 @@ nav {
     padding: 100px 0 60px 0;
 }
 
-.cartao__video--container {
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 14px;
-    overflow: hidden;
-}
-
 .cartao__video {
-    width: 560px;
-    height: 315px;
+    border-radius: 14px;
+    width: 100%;
+    height: 100%;
+    max-width: 560px;
+    max-height: 315px;
     background: black;
     background-image: url('../src/logo.svg');
     background-repeat: no-repeat;
@@ -227,6 +238,7 @@ nav {
 .cartao__h2 {
     text-wrap: nowrap;
     color: var(--caju__red);
+    margin-bottom: 24px;
 }
 
 .cartao__row--1 {
@@ -240,11 +252,13 @@ nav {
     align-items: center;
     grid-template-columns: 1.2fr 400px;
     gap: 100px;
+    margin-top: 100px;
     margin-bottom: 140px;
 }
 
 .cartao__img {
-    width: 100%;
+    width: 80%;
+    margin: auto;
 }
 
 .cartao__h5 {
@@ -268,7 +282,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 14px;
+    gap: 20px;
     height: 452px;
 }
 
@@ -324,10 +338,8 @@ section {
 }
 
 .beneficios__calling {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 44px;
     color: white;
+    width: max-content;
 }
 
 .beneficios__svg {
@@ -337,6 +349,7 @@ section {
 
 .beneficios__title {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
@@ -346,6 +359,8 @@ section {
     display: flex;
     align-items: flex-start;
     gap: 8px;
+    position: relative;
+    z-index: 1;
 }
 
 .beneficios__card--h3 {
@@ -355,7 +370,7 @@ section {
 
 .beneficios__card {
     position: relative;
-    display: flex;
+    display: flex;    
     flex-direction: column;
     border: 8px;
     border-radius: 14px;
@@ -370,11 +385,11 @@ section {
     font-size: 14px;
     font-weight: 300;
     overflow: auto;
-    height: 52%;
+    height: 120px;
     padding-right: 14px;
 }
 
-.saldo {
+.beneficios__saldo {
     position: absolute;
     display: flex;
     align-items: center;
@@ -391,7 +406,7 @@ section {
 }
 
 
-.saldo:hover .ballon {
+.beneficios__saldo:hover .ballon {
     opacity: 1;
     transition: .3s;
     pointer-events: default;
@@ -412,6 +427,7 @@ section {
     border-radius: 6px;
     color: white;
     padding: 10px;
+    width: 310px;
     height: 56px;
     bottom: -60px;
     transform: translate(calc(-50% + 32px));
@@ -539,6 +555,10 @@ section {
     object-fit: cover;
 }
 
+.solucoes__h2 {
+    margin-bottom: 24px;
+}
+
 .solucoes__logo-despesas {
     width: 228px;
 }
@@ -640,6 +660,7 @@ section {
 
 .pacote__h2 {
     text-wrap: nowrap;
+    margin-bottom: 24px;
 }
 
 .pacote__h3 {
@@ -694,6 +715,11 @@ section {
     object-fit: cover;
 } 
 
+.pacote__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 .pacote--container {
     flex-direction: row;
     flex-wrap: wrap;
@@ -729,6 +755,10 @@ section {
     right: 0;
     top: -200px;
     width: 220px;
+}
+
+.descontos__h2 {
+    margin-bottom: 24px;
 }
 
 .descontos__grid {
@@ -791,7 +821,7 @@ section {
 
 .contato__h3 {
     margin-top: 200px;
-    font-size: 50px;
+    font-size: 3rem;
 }
 
 .form {
@@ -814,6 +844,10 @@ section {
 
 .form .btn__red {
     width: 100%;
+}
+
+.form__btn__red {
+    margin-top: 12px;
 }
 
 /* Footer */
@@ -850,11 +884,9 @@ footer {
     text-align: center;
 }
 
-.reconhecimento__group h5 {
+.reconhecimento__h2 {
     color: var(--caju__red);
-    font-size: 32px;
     margin-bottom: 10px;
-    font-weight: 700;
 }
 
 
@@ -886,69 +918,3 @@ footer {
     line-height: 18px;
 }
 /*  */
-
-
-.loading__btn {
-    transform: rotate(0deg);
-    position: absolute;
-    opacity: 0.6;
-    border: var(--caju__red) dashed 4px;
-    width: 120px;
-    height: 120px;
-    animation: loading infinite backwards 20s;
-    border-radius: 50%;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.loading__text {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    color: white;
-    margin-top: 160px;
-}
-
-#dot {
-    display: block;
-    position: absolute;
-    left: 96px;
-}
-
-@keyframes loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.youtube, .loading__animation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-}
-
-.button {
-    position: absolute; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    height: max-content;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-}
-
-.youtube-svg {
-    width: 100px;
-    height: 100px;
-    pointer-events: none;
-}

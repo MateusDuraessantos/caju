@@ -1,16 +1,8 @@
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {descontos__group
     .surpreenda--container, .premiacoes__grid, .pacote__grid, .solucoes__header, .beneficios__title,
      .descontos__grid, .descontos__group, .reconhecimento, .contato__container, .cartao__row--1, .cartao__row--2, .solucoes__grid, .pacote__column--1 {
         display: flex;
         flex-direction: column;
-    }
-
-    h2 {
-        font-size: 30px;
-    }
-    
-    h3 {
-        font-size: 24px;
     }
 
     br {
@@ -29,7 +21,15 @@
         width: calc(100% - 40px);
     }
 
-    /* cartaoo */
+
+    /* header */
+
+    .header__background {
+        opacity: 0.5;
+    }
+
+    /* Cartão */
+
     .cartao__img {
         width: 200px;
         margin-top: 50px;
@@ -39,16 +39,19 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-content: space-between;
-    }    
-    
-    /*  */
-    
+    }  
+
     .beneficios__text {
+        position: absolute;
+        top: 40px;
         margin-top: 20px;
+        margin-bottom: 50px;
     }
 
     .beneficios__red{
-        height: 828px;
+        height: max-content;
+        border-radius: 20px;
+        padding: 22px 12px 24px 12px;
     }
 
     .section__beneficios {
@@ -56,30 +59,85 @@
     }
 
     .beneficios__grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        overflow-x: scroll;
+        display: flex;
+        flex-direction: column;
+        overflow-x: auto;
         overflow-y: hidden;
         align-items: center;
         justify-items: center;
         width: 100%;
         gap: 20px;
     }
+
     .beneficios__title {
         gap: 20px;
         text-align: center;
     }
+
     .beneficios__card {
         min-width: 260px;
         margin-bottom: initial;
+        transition: .4s;
+    }
+    
+    .beneficios__saldo {
+        transition-delay: .3s !important;
+        transition: .3s;
     }
 
-    /* contato */
+    .reponsive-1000 .beneficios__saldo {
+        transition: .26s !important;
+    }
 
+    .beneficios__card::after {
+        content: '›';
+        position: absolute;
+        font-size: 42px;
+        right: 20px;
+        transform: rotate(90deg);
+        transition: .4s;
+    }
 
+    .beneficios__card::after {
+        position: absolute;
+        right: 12px;
+        top: 0;
+    }
 
-    /* surpreenda */
+    .reponsive-1000 .beneficios__text, .reponsive-1000 .beneficios__saldo {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transition: .4s;
+    }
+    
+    .reponsive-1000.beneficios__card {
+        cursor: pointer;
+        height: 50px;
+        transition: .4s;
+        justify-content: center;
+    }
 
+    .reponsive-1000.beneficios__card::after {
+        position: absolute;
+        right: 12px;
+        top: 0;
+        transform: rotate(0deg);
+    }
 
+    .reponsive-1000 .beneficios__card--h3 {
+        transition: .4s;
+        height: initial;
+    }
+    .beneficios__card--title {
+        cursor: pointer;
+    }
+
+    .reponsive-1000 .beneficios__card--title {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+    }
 
     /* premiacoes */
 
@@ -112,7 +170,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: initial;
     }
 
     .pacote__img img {
@@ -141,12 +198,111 @@
         max-width: initial;
     }
 
+    .pacote-v-for .flex{
+        flex-direction: column;
+    }
+
+    .pacote__title {
+        text-align: center;
+    }
+
+    .pacote--icon {
+        align-items: center;
+    }
+
+    /* Gráficos */
+
+    .solucoes__grafismo {
+        width: 300px;
+    }
+
+    .surpreenda__grafismo-2 {
+        width: 120px;
+        top: -50px;
+    }
+    
+    .descontos__grafismo {
+        top: -90px;
+        width: 120px;
+    }
+
+    .descontos__group {
+        width: initial;
+        height: initial;
+        gap: 20px;
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .descontos__group img {
+        width: 200px;
+    }
+
+    .descontos__group--invert {
+        flex-direction: column-reverse;
+        margin-bottom: 40px;
+    }
+
+
+    .footer__grafismo {
+        width: 150px;
+        top: 450px;
+    }
+
+
+    /* footer */
+    .rodape {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+
+    }
+    
+   
 }
 
 @media screen and (max-width: 800px) {
     
+    html {
+        font-size: 12px;
+    }
+       
+    header {
+        min-height: 855px;
+        background-position: center;
+    }
+
+    nav {
+        padding:  0 22px;
+        gap: 20px;
+    }
+ 
 }
 
 @media screen and (max-width: 400px) {
+
+    .cartao__cont {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .cartao__row--2 {
+        gap: 20px;   
+    }
+
+    .pacote--container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .pacote-v-for {
+        margin-bottom: 20px;
+    }
+
+    .pacote--container {
+        margin-bottom: 64px;
+    }
     
 }
