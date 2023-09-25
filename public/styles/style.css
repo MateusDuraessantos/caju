@@ -1,19 +1,19 @@
 
 @font-face {
     font-family: Faktum;
-    src: url('./font/Faktum-Regular.otf') format('opentype');
+    src: url('../font/Faktum-Regular.otf') format('opentype');
     font-weight: 400;
 }
 
 @font-face {
     font-family: Faktum;
-    src: url('./font/Faktum-Bold.otf') format('opentype');
+    src: url('../font/Faktum-Bold.otf') format('opentype');
     font-weight: 700;
 }
 
 @font-face {
     font-family: Faktum;
-    src: url('./font/Faktum-SemiBold.otf') format('opentype');
+    src: url('../font/Faktum-SemiBold.otf') format('opentype');
     font-weight: 600;
 }
 
@@ -163,21 +163,43 @@ body {
 header {
     display: flex;
     flex-direction: column;
-    background-image: url('./src/images/foto-caju-cartao.png');
+    background-image: url('../src/images/foto-caju-cartao.png');
     background-repeat: no-repeat;
     background-position: 0 -100px;
     background-size: cover;
-    height: 50vw;
+    height: 50vw; 
+    width: 100%;
     min-height: 636px;
     max-height: 80vh;
 }
- 
+
+nav {
+    display: flex;
+    align-items: center;
+    background: white;
+    height: 80px;
+    padding: 0 100px;
+    gap: 40px;
+}
+
 .banner {
+    font-size: 22px;
+    color: white;
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
- /* Cartão */
+
+.h1__banner {
+    width: 500px;
+}
+
+.banner__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Cartão */
  
 .cartao {
     padding: 100px 0 60px 0;
@@ -189,7 +211,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 30px;
+    border-radius: 14px;
     overflow: hidden;
 }
 
@@ -197,7 +219,9 @@ header {
     width: 560px;
     height: 315px;
     background: black;
-    background-image: url('./src/logo.svg');
+    background-image: url('../src/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .cartao__h2 {
@@ -207,7 +231,7 @@ header {
 
 .cartao__row--1 {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
 
@@ -223,8 +247,6 @@ header {
     width: 100%;
 }
 
-
-
 .cartao__h5 {
     color: var(--caju__red);
     font-size: 20px;
@@ -238,12 +260,20 @@ header {
     font-size: 14px;
 }
 
+.cartao__btn {
+    margin-top: 60px;
+}
+
 .cartao__cont {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 14px;
     height: 452px;
+}
+
+.cartao__cont .flex{
+    gap: 8px;
 }
 
 /* Beneficios */
@@ -263,6 +293,8 @@ section {
     top: -440px;
     z-index: 0;
     width: 100%;
+    height: 700px;
+    object-fit: cover;
 }
 
 .section__beneficios {
@@ -294,7 +326,7 @@ section {
 .beneficios__calling {
     font-size: 40px;
     font-weight: 700;
-    line-height: 38px;
+    line-height: 44px;
     color: white;
 }
 
@@ -422,18 +454,20 @@ section {
 }
 
 .surpreenda--container {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     justify-items: center;
     gap: 40px;
-    padding: 80px 0 ;
+    padding: 80px 0;
+    z-index: 1;
 }
 
 .surpreenda__icon {
     width: 40px;
 }
 
-.surpreenda__img {
+.surpreenda__img { 
     width: 243px;
 }
 .surpreenda__padding--bottom {
@@ -480,6 +514,7 @@ section {
 
 .premiacoes__p{
     text-wrap: nowrap;
+    font-weight: 600;
 }
 
 /* Soluções */
@@ -540,7 +575,7 @@ section {
     text-align: center;
     width: max-content;
     margin-top: 130px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 
@@ -651,12 +686,11 @@ section {
     width: 100%;
     height: 500px;
     overflow: hidden;
+    border-radius: 40px;
 }
 
 .pacote__img img {
-    border-radius: 40px;
     width: 100%;
-    height: 100%;
     object-fit: cover;
 } 
 
@@ -716,6 +750,8 @@ section {
     width: 800px;
     height: 360px;
     margin: auto;
+    gap: 96px;
+    white-space: nowrap;
 }
 
 .descontos__img {
@@ -733,7 +769,7 @@ section {
 
 .contato {
     position: relative;
-    background-image: url('./src/images/foto-caju-home-office.png');
+    background-image: url('../src/images/foto-caju-home-office.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -848,4 +884,71 @@ footer {
 
 .rodape p {
     line-height: 18px;
+}
+/*  */
+
+
+.loading__btn {
+    transform: rotate(0deg);
+    position: absolute;
+    opacity: 0.6;
+    border: var(--caju__red) dashed 4px;
+    width: 120px;
+    height: 120px;
+    animation: loading infinite backwards 20s;
+    border-radius: 50%;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.loading__text {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    color: white;
+    margin-top: 160px;
+}
+
+#dot {
+    display: block;
+    position: absolute;
+    left: 96px;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.youtube, .loading__animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    position: absolute; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.youtube-svg {
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
 }
