@@ -17,6 +17,29 @@
     font-weight: 600;
 }
 
+body::-webkit-scrollbar-thumb {
+    background-color: var(--caju__red); 
+    border-radius: 6px; 
+    border: 0px solid #F5F5F5; 
+}
+
+::-webkit-scrollbar {
+    width: 6px; 
+    height: 12px;
+    background-color: #F5F5F5;
+    border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd; 
+    border-radius: 6px; 
+    border: 0px solid #F5F5F5; 
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent; 
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -161,17 +184,20 @@ header {
 }
 
 .cartao__video--container {
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 30px;
+    overflow: hidden;
 }
 
 .cartao__video {
     width: 560px;
     height: 315px;
-    background: gray;
-    border-radius: 30px;
+    background: black;
+    background-image: url('./src/logo.svg');
 }
 
 .cartao__h2 {
@@ -261,7 +287,7 @@ section {
     width: 100%;
     border-radius: 30px;
     background: #E80537;
-    height: 550px;
+    height: 600px;
     padding: 28px;
 }
 
@@ -304,7 +330,8 @@ section {
     padding: 12px;
     width: calc(100% - 20px);
     margin-bottom: 20px;
-    height: 240px;
+    height: 252px;
+    
 }
 
 .beneficios__text {
@@ -312,6 +339,7 @@ section {
     font-weight: 300;
     overflow: auto;
     height: 52%;
+    padding-right: 14px;
 }
 
 .saldo {
