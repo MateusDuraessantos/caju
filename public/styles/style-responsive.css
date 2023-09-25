@@ -65,8 +65,6 @@
     .beneficios__grid {
         display: flex;
         flex-direction: column;
-        overflow-x: auto;
-        overflow-y: hidden;
         align-items: center;
         justify-items: center;
         width: 100%;
@@ -135,6 +133,7 @@
     }
     .beneficios__card--title {
         cursor: pointer;
+        align-items: center;
     }
 
     .reponsive-1000 .beneficios__card--title {
@@ -252,6 +251,28 @@
     .descontos__img img {
         width: 145%;
     }
+
+    .ballon {
+        right: -240px;
+        width: 270px;
+        transform: translate(calc(-40% + 32px));
+        top: -70px;
+        bottom: initial;
+    }
+
+    .arrow {
+        left: 40px;
+        top: initial;
+        bottom: -7px;
+    }
+    
+    html {
+        font-size: 12px;
+    }
+
+    .beneficios__card--h3 {
+        height: initial;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -266,7 +287,6 @@
         height: initial;
         gap: 20px;
         margin-top: 80px;
-        width: calc(100% - 200px);
         text-align: center;
     }
 
@@ -279,9 +299,6 @@
         width: 200px;
     }
 
-    html {
-        font-size: 12px;
-    }
        
     header {
         min-height: 855px;
@@ -324,7 +341,11 @@
 
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
+
+    .btn__red, .btn__orange, .btn__white {
+        width: calc(100% - 40px);
+    }
 
     .cartao__btn {
         width: 100%;

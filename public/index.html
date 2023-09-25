@@ -77,7 +77,7 @@
                         <img class="cartao__img" src="./src/cartao-grafismo.svg">
                         <div class="cartao__cont">
                             <div v-for="cartao in cartoes">
-                                <div class="flex">
+                                <div class="global-icon__list flex">
                                     <img class="cartao__icon" :src="cartao.icon" alt>
                                     <h5 class="cartao__h5">{{ cartao.title }}</h5>
                                 </div>
@@ -119,7 +119,7 @@
                                     Saldo {{ item.saldo }} <img src="./src/icons/help.svg" alt="ajuda">
                                     <div class="ballon">
                                         <div class="arrow"></div>
-                                        <p v-if="item.saldo == 'flexivel'">
+                                        <p v-if="item.saldo == 'flexivel'" style="width: px;">
                                             Saldo exclusivo para a alimentação <br> do trabalhador, conforme a Lei 14.442/2022.
                                         </p>
                                         <p v-else>
@@ -127,7 +127,6 @@
                                         </p>
                                     </div>
                                 </button>
-
                             </div>
                         </div>
                     </div>

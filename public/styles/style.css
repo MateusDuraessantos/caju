@@ -66,7 +66,7 @@ h3 {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 h1, h2, h3 {
@@ -92,7 +92,7 @@ h1, h2, h3 {
     transition: .2s;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 16px;
     width: max-content;
 }
 
@@ -249,8 +249,8 @@ nav {
 .cartao__row--2 {
     display: grid;
     align-items: center;
-    grid-template-columns: 1.2fr 400px;
-    gap: 100px;
+    grid-template-columns: 1.2fr 500px;
+    gap: 40px;
     margin-top: 100px;
     margin-bottom: 140px;
 }
@@ -287,6 +287,7 @@ nav {
 
 .cartao__cont .flex{
     gap: 8px;
+    margin-bottom: 10px;
 }
 
 
@@ -419,6 +420,8 @@ section {
 
 .ballon p {
     line-height: 18px;
+    font-size: 14px;
+    width: max-content;
 }
 
 .ballon {
@@ -427,13 +430,12 @@ section {
     pointer-events: none;
     position: absolute;
     display: flex;
+    width: max-content;
     justify-content: center;
     background: #252525;
     border-radius: 6px;
     color: white;
     padding: 10px;
-    width: 310px;
-    height: 56px;
     bottom: -60px;
     transform: translate(calc(-50% + 32px));
     text-wrap: nowrap;
