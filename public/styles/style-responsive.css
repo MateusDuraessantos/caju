@@ -1,6 +1,5 @@
-@media screen and (max-width: 1000px) {descontos__group
-    .surpreenda--container, .premiacoes__grid, .pacote__grid, .solucoes__header, .beneficios__title,
-     .descontos__grid, .descontos__group, .reconhecimento, .contato__container, .cartao__row--1, .cartao__row--2, .solucoes__grid, .pacote__column--1 {
+@media screen and (max-width: 1000px) {
+    .surpreenda--container, .premiacoes__grid, .pacote__grid, .solucoes__header, .beneficios__title, .reconhecimento, .contato__container, .cartao__row--1, .solucoes__grid, .pacote__column--1 {
         display: flex;
         flex-direction: column;
     }
@@ -29,17 +28,22 @@
     }
 
     /* Cartão */
-
-    .cartao__img {
-        width: 200px;
-        margin-top: 50px;
+    
+    .cartao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .cartao__cont {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-content: space-between;
-    }  
+    .cartao__img {
+        width: 270px;
+    }
+
+    .cartao__row--2 {
+        gap: 30px;
+        width: initial;
+        grid-template-columns: max-content 1fr;
+    }
 
     .beneficios__text {
         position: absolute;
@@ -48,7 +52,7 @@
         margin-bottom: 50px;
     }
 
-    .beneficios__red{
+    .beneficios__red {
         height: max-content;
         border-radius: 20px;
         padding: 22px 12px 24px 12px;
@@ -135,6 +139,7 @@
 
     .reponsive-1000 .beneficios__card--title {
         position: absolute;
+        align-items: center;
         left: 12px;
         top: 12px;
     }
@@ -214,6 +219,7 @@
 
     .solucoes__grafismo {
         width: 300px;
+        top: 540px;
     }
 
     .surpreenda__grafismo-2 {
@@ -226,16 +232,42 @@
         width: 120px;
     }
 
+    .footer__grafismo {
+        width: 150px;
+        top: 450px;
+    }
+
+    /* footer */
+
+    .rodape {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .beneficios__calling, .solucoes__h3, .h1__banner, .footer__h2 {
+        width: 100%;
+    }
+
+    .descontos__img img {
+        width: 145%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    
+    .descontos__group, .descontos__grid {
+        display: flex;
+        flex-direction: column;
+    }
+
     .descontos__group {
         width: initial;
         height: initial;
         gap: 20px;
         margin-top: 80px;
+        width: calc(100% - 200px);
         text-align: center;
-    }
-
-    .descontos__group img {
-        width: 200px;
     }
 
     .descontos__group--invert {
@@ -243,26 +275,10 @@
         margin-bottom: 40px;
     }
 
-
-    .footer__grafismo {
-        width: 150px;
-        top: 450px;
+    .descontos__group img {
+        width: 200px;
     }
 
-
-    /* footer */
-    .rodape {
-        flex-direction: column-reverse;
-        gap: 20px;
-        text-align: center;
-
-    }
-    
-   
-}
-
-@media screen and (max-width: 800px) {
-    
     html {
         font-size: 12px;
     }
@@ -276,10 +292,43 @@
         padding:  0 22px;
         gap: 20px;
     }
- 
+
+    .descontos__img {
+        height: 340px;
+    }
+    
+    .descontos__img img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+  
+}
+
+@media screen and (max-width: 650px) {
+
+    .cartao__row--2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cartao__margin {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .cartao__img {
+        margin-bottom: 40px;
+    }
+
 }
 
 @media screen and (max-width: 400px) {
+
+    .cartao__btn {
+        width: 100%;
+    }
 
     .cartao__cont {
         display: flex;
@@ -304,5 +353,6 @@
     .pacote--container {
         margin-bottom: 64px;
     }
-    
+
+
 }
