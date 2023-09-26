@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/style-responsive.css">
     <!-- VueJs -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+    <script src="./vue.min.js"></script>
+ 
 </head>
 
 <body id="body">
+
     <div id="app">
         <header>
             <img class="header__background" src="./src/images/foto-caju-cartao.png">
@@ -97,7 +100,7 @@
 
             <!-- Benefícios -->
             
-            <section class="section__beneficios ">
+            <section class="section__beneficios" >
                 <img class="background--beneficio" src="./src/images/foto-caju-celular-cartao.png">
                 <div class="beneficios margin--body">
                     <div class="beneficios__red">
@@ -106,7 +109,7 @@
                             <h2 class="beneficios__calling">Chega mais, vem conhecer <br> os multibenefícios! </h2>
                         </div>
                       
-                        <div class="beneficios__grid">
+                        <div class="beneficios__grid" >
                             <div v-for="item in items" class="beneficios__card reponsive-1000" @click="openCard" :style="`background: #${item.color}`">
                                 <div class="beneficios__card--title" >
                                     <img :src="'./src/icons/beneficios/' + item.icon" >
@@ -210,10 +213,6 @@
                         </div>
                     </div>
                     
-                    <br>
-                    <br>
-                    <br>
-
                     <button class="btn__red">
                         Presentear com Caju Premiações
                     </button>
@@ -384,13 +383,6 @@
                         </div>
                     </div>
 
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
                     <h3 class="pacote__h3">
                         Todos os benefícios que o colaborador deseja, <br> com a facilidade e integração que o RH precisa 
                     </h3>  
@@ -408,7 +400,7 @@
                     </div>
 
                     <div class="margin">
-                        <button class="btn__white"> Ter Caju Mais na minha empresa</button>
+                        <button class="btn__white">Ter Caju Mais na minha empresa</button>
                     </div>
 
                 </div>                
@@ -449,11 +441,13 @@
                         </h3>
                     </div>
 
-                    <br><br><br><br>                        
-
                 </div>
                 
-                <button class="btn__white margin">Quero descontos no Feirinha</button>
+                <div class="descontos__btn__white margin">
+                    <button class="btn__white">
+                        Quero descontos no Feirinha
+                    </button>
+                </div>
                 
             </section>
             
@@ -528,7 +522,7 @@
                     </p>
                 </div>
                 <div class="reconhecimento__group">
-                    <img src="./src/top-of-mind.png">
+                    <img class="reconhecimento__responsive" src="./src/top-of-mind.png">
                     <h2 class="reconhecimento__h2">
                         Top 5 no ranking <br> Top of Mind 2023
                     </h2>
@@ -553,9 +547,7 @@
         </footer>
     </div>
 
-    <script src="./scripts-vue.js">//Informações de cards e listas</script>
-
-
+    <script src="./scripts-vue.js">//Aqui ficam todas as informações dos cards e de listas</script>
 </body>
 
 </html>

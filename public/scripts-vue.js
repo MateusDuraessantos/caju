@@ -3,29 +3,23 @@ new Vue({
     methods: {
         openCard(event){
             let actived = document.querySelector('.itIsActived')
-            elementEvent = event.currentTarget.classList
-
+            let elementEvent = event.currentTarget.classList
             if(event.target.classList != 'beneficios__saldo'){
-                console.log(event.target.classList[0])
-              if(!actived && elementEvent[1] == 'reponsive-1000') {
-                  elementEvent.remove('reponsive-1000')
-                  elementEvent.add('itIsActived')
-              }
-              else if (actived && event.currentTarget.classList[1] != 'itIsActived') {
-                  actived.classList.add("reponsive-1000")
-                  actived.classList.remove("itIsActived")
-                  elementEvent.add('itIsActived')
-                  elementEvent.remove('reponsive-1000')
-              }
-              else {
-                  elementEvent.add('reponsive-1000')
-                  elementEvent.remove('itIsActived')
-              }
+                if(!actived && elementEvent[1] == 'reponsive-1000') {
+                    elementEvent.remove('reponsive-1000')
+                    elementEvent.add('itIsActived')
+                }
+                else if (actived && event.currentTarget.classList[1] != 'itIsActived') {
+                    actived.classList.add("reponsive-1000")
+                    actived.classList.remove("itIsActived")
+                    elementEvent.add('itIsActived')
+                    elementEvent.remove('reponsive-1000')
+                }
+                else {
+                    elementEvent.add('reponsive-1000')
+                    elementEvent.remove('itIsActived')
+                }
             }
-            else {
-
-            }
-
         }
     },
     data: {
@@ -117,7 +111,7 @@ new Vue({
            },
            {
                icon: 'cup.svg',
-               title: 'Saúde em primeiro lugar ',
+               title: 'Saúde em primeiro lugar',
                text: 'Acesso a profissionais de saúde através de teleconsultas e pronto-atendimento quando for necessário.',
            },
            {
@@ -128,12 +122,12 @@ new Vue({
            {
                icon: 'health-one.svg',
                title: 'Descontinhos em exames e farmácias',
-               text: 'Descontos em vários medicamentos e exames médicos. ',
+               text: 'Descontos em vários medicamentos e exames médicos.',
            },
            {
                icon: 'book.svg',
                title: 'Apoio nas finanças e no juridiquês',
-               text: 'Assessoria jurídica e contábil para desenrolar as pendências e cuidar do bolso dos colaboradores. ',
+               text: 'Assessoria jurídica e contábil para desenrolar as pendências e cuidar do bolso dos colaboradores.',
            },
            {
                icon: 'car.svg',

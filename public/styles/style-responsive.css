@@ -7,7 +7,11 @@
     br {
         display: none;
     }
-
+    
+    .rodape br {
+        display: initial;
+    }
+    
     * {
         text-wrap: wrap !important;
     }
@@ -25,6 +29,10 @@
 
     .header__background {
         opacity: 0.5;
+    }
+    
+    .descontos__btn__white, .premiacoes .btn__red {
+        margin-top: 0;
     }
 
     /* Cartão */
@@ -112,6 +120,10 @@
         position: absolute;
         transition: .4s;
     }
+
+    .beneficios__card {
+        width: 100%;
+    }
     
     .reponsive-1000.beneficios__card {
         cursor: pointer;
@@ -131,6 +143,7 @@
         transition: .4s;
         height: initial;
     }
+
     .beneficios__card--title {
         cursor: pointer;
         align-items: center;
@@ -238,12 +251,6 @@
 
     /* footer */
 
-    .rodape {
-        flex-direction: column-reverse;
-        gap: 20px;
-        text-align: center;
-    }
-    
     .beneficios__calling, .solucoes__h3, .h1__banner, .footer__h2 {
         width: 100%;
     }
@@ -267,7 +274,7 @@
     }
     
     html {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .beneficios__card--h3 {
@@ -298,13 +305,7 @@
     .descontos__group img {
         width: 200px;
     }
-
        
-    header {
-        min-height: 855px;
-        background-position: center;
-    }
-
     nav {
         padding:  0 22px;
         gap: 20px;
@@ -318,15 +319,57 @@
         width: 100%;
         object-fit: cover;
     }
-
-  
+    
 }
 
 @media screen and (max-width: 650px) {
+    
+    h1 {
+        font-size: 2.2rem;
+    }
 
-    .cartao__row--2 {
-        display: flex;
-        flex-direction: column;
+    .margin--body {
+        width: calc(100% - 30px);
+    }
+
+    .descontos__group {
+        margin-top: 50px;
+    }
+
+    h2, .contato__h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .contato__h3 {
+        margin-top: 22px;
+    }
+
+    header {
+        min-height: 610px;
+    }
+
+    .beneficios__card--h3 {
+        font-size: 1.2rem;
+    }
+    
+    .premiacoes__grid {
+        width: 100%;
+    }
+    
+    .premiacoes__h2 {
+        margin-bottom: 32px;   
+    }
+
+    .rodape {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+        padding: 14px 10px;
     }
 
     .cartao__margin {
@@ -339,11 +382,124 @@
         margin-bottom: 40px;
     }
 
+    .cartao {
+        margin: 20px 0 0 0;
+    }
+
+    .cartao__row--2 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 60px;
+        margin-bottom: 62px;
+    }
+    
+    .surpreenda__padding--bottom {
+        padding-bottom: 22px;
+    }
+
+    .group__icon {
+        width: 60px;
+    }
+
+    .group__container p {
+        line-height: 18px;
+    }
+
+    .cartao__btn {
+        margin-top: 24px;
+    }
+
+    .solucoes__group {
+        gap: 25px 40px;
+    }
+
+    .beneficios__card {
+        border-radius: 8px;
+    }
+
+    .beneficios__grid {
+        gap: 12px;
+    }
+
+    .section__beneficios .margin--body {
+        width: calc(100% - 16px);
+    }
+
+    .surpreenda--container {
+        padding: 20px 0;
+    }
+
+    .premiacoes {
+        padding: 40px 0;
+    }
+
+    .solucoes__logo-despesas, .beneficios__svg {
+        width: 165px;
+
+    }
+    .beneficios__title {
+        align-items: flex-start;
+        text-align: start;
+    }
+    
+    .solucoes__header, .solucoes__img--grid, .pacote__img, .form {
+        border-radius: 20px;
+    }
+    
+    .solucoes__header {
+        padding: 28px;
+    }
+
+    .solucoes__h3 {
+        margin-top: 0;
+        margin-bottom: 44px;
+    }
+
+    .solucoes__grid {
+        margin-bottom: 52px;
+    }
+
+    .descontos__group--1{
+       width: 100%;
+    }
+   
+    footer {
+        padding-top: 40px;
+    }
+
+    .footer__h2 {
+        margin-bottom: 30px;
+    }
+
+    .reconhecimento {
+        gap: 24px;
+    }
+
+    .reconhecimento__h2 {
+        margin-bottom: 0;
+    }
+    
+    .reconhecimento__responsive {
+        margin-bottom: 0 !important;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
+    
+    .solucoes__header {
+        margin-bottom: 28px;
+    }
+
+    .global-icon__list--container {
+        margin-top: 21px;
+    }
 
     .btn__red, .btn__orange, .btn__white {
+       width: 100%;
+    }
+    
+    .section__beneficios .btn__red, .descontos .btn__white {
         width: calc(100% - 40px);
     }
 
@@ -354,7 +510,6 @@
     .cartao__cont {
         display: flex;
         flex-direction: column;
-        gap: 24px;
     }
 
     .cartao__row--2 {

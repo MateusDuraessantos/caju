@@ -156,8 +156,9 @@ p {
 }
 
 .margin {
-    margin: auto;
-    width: max-content;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .flex {
@@ -220,7 +221,7 @@ nav {
 /* Cartão */
  
 .cartao {
-    padding: 100px 0 60px 0;
+    margin: 100px 0 60px 0;
 }
 
 .cartao__video {
@@ -282,7 +283,6 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
-    height: 452px;
 }
 
 .cartao__cont .flex{
@@ -323,7 +323,7 @@ section {
     align-items: center;
     gap: 200px;
     width: 100%;
-    padding-bottom: 80px;
+    margin-bottom: 80px;
 }
 
 .beneficios__grid {
@@ -511,6 +511,10 @@ section {
     padding-top: 60px;
 }
 
+.premiacoes .btn__red {
+    margin-top: 80px;
+}
+
 .premiacoes__h2 {
     color: var(--caju__red);
     width: max-content;
@@ -673,6 +677,7 @@ section {
 .pacote__h3 {
     text-align: center;
     margin: auto;
+    margin-top: 64px;
 }
 
 .pacote__grid {
@@ -756,6 +761,10 @@ section {
     padding: 80px 0;
     background: var(--caju__red);
     color: white;
+}
+
+.descontos__btn__white{
+    margin-top: 60px;
 }
 
 .descontos__grafismo {
