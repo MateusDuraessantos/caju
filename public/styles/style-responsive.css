@@ -1,3 +1,10 @@
+@media screen and (max-width: 1280px) {
+    nav {
+        padding: 0 22px;
+        gap: 20px;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .surpreenda--container, .premiacoes__grid, .pacote__grid, .solucoes__header, .beneficios__title, .reconhecimento, .contato__container, .cartao__row--1, .solucoes__grid, .pacote__column--1 {
         display: flex;
@@ -23,7 +30,6 @@
     .margin--body {
         width: calc(100% - 40px);
     }
-
 
     /* header */
 
@@ -89,7 +95,7 @@
         margin-bottom: initial;
         transition: .4s;
     }
-    
+
     .beneficios__saldo {
         transition-delay: .3s !important;
         transition: .3s;
@@ -124,7 +130,7 @@
     .beneficios__card {
         width: 100%;
     }
-    
+
     .reponsive-1000.beneficios__card {
         cursor: pointer;
         height: 50px;
@@ -238,7 +244,7 @@
         width: 120px;
         top: -50px;
     }
-    
+
     .descontos__grafismo {
         top: -90px;
         width: 120px;
@@ -272,7 +278,7 @@
         top: initial;
         bottom: -7px;
     }
-    
+
     html {
         font-size: 14px;
     }
@@ -280,6 +286,102 @@
     .beneficios__card--h3 {
         height: initial;
     }
+    
+    .navegacao__logo {
+        gap: 14px;
+    }
+
+    .navegacao__logo--1 {
+        width: 70px;
+    }
+    .navegacao__logo--2 {
+        width: 10px;
+    }
+    .navegacao__logo--3 {
+        width: 35px;
+    }
+
+}
+
+/* header, nav, banner */
+
+.navegacao .navegacao__logo, .navegacao__close, .hamburger {
+    display: none;
+} 
+
+@media screen and (max-width: 1000px) {
+    
+    .navegacao .navegacao__logo, .navegacao__close, .hamburger  {
+        display: flex;
+    } 
+
+    .navegacao__close, .nav__overlay, .navegacao, .hamburger {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    * {
+        transition: .2s !important;
+    }
+
+    .navegacao {
+        position: fixed;
+        flex-direction: column;
+        width: 0;
+        transform: .4s;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        padding: 20px;
+        display: flex;
+        background: var(--caju__red);
+        background: white;
+        overflow: hidden;
+    }
+
+    .nav--responsive .navegacao {
+        width: 240px;
+        transition: .4s;
+    }
+
+    .hamburger {
+        background-color: transparent;
+        border: none;
+        font-size: 2em;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+    .navegacao__close, .nav__overlay, .nav--responsive .navegacao {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    .nav--responsive .nav__overlay {
+        opacity: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100vh;
+    }
+
+    .navegacao__close {
+        background: none;
+        border: none;
+        position: fixed;
+        top: 14px;
+        right: 22px;
+        font-size: 36px;
+        color: white;
+    }
+
+    .nav--responsive .navegacao .navegacao__logo {
+        margin-top: auto;
+        pointer-events: none;
+    }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -305,21 +407,16 @@
     .descontos__group img {
         width: 200px;
     }
-       
-    nav {
-        padding:  0 22px;
-        gap: 20px;
-    }
 
     .descontos__img {
         height: 340px;
     }
-    
+
     .descontos__img img {
         width: 100%;
         object-fit: cover;
     }
-    
+
 }
 
 @media screen and (max-width: 650px) {
@@ -529,6 +626,5 @@
     .pacote--container {
         margin-bottom: 64px;
     }
-
 
 }

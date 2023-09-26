@@ -40,6 +40,10 @@ body::-webkit-scrollbar-thumb {
     background-color: transparent; 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -73,8 +77,6 @@ h1, h2, h3 {
     width: 100%;
 }
 
-
-
 :root {
     --caju__red: #E80537;
     --caju__red--hover: #d3002e;
@@ -84,9 +86,10 @@ h1, h2, h3 {
 }
 
 .btn__red, .btn__orange, .btn__white {
+    display: block;
     padding: 14px 20px;
+    text-align: center;
     border: none;
-    color: white;
     border-radius: 8px;
     font-weight: 500;
     transition: .2s;
@@ -94,6 +97,8 @@ h1, h2, h3 {
     font-weight: bold;
     font-size: 16px;
     width: max-content;
+    text-decoration: none;
+    color: white;
 }
 
 .btn__red:hover, .btn__orange:hover {
@@ -169,43 +174,90 @@ body {
     margin: auto;
 }
 
+/* Navegação */
+
+
+nav {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    height: 80px;
+    padding: 0 100px;
+    gap: 40px;
+    width: 100%;
+    z-index: 100;  
+}
+
+.navegacao {
+    display: flex;
+    gap: 36px;
+}
+
+.navegacao__logo {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navegacao__logo--1 {
+    width: 100px;
+}
+.navegacao__logo--2 {
+    width: 20px;
+}
+.navegacao__logo--3 {
+    width: 60px;
+}
+
+.navegacao__link {
+    display: flex;
+    gap: 26px;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    transition: .2s;
+}
+
+.navegacao__link:hover {
+    transition: .2s;
+    color: var(--caju__red);
+}
+
 /* Banner */
 
 header {
     position: relative;
+    top: 0;
     display: flex;
     flex-direction: column;
     height: 50vw; 
     width: 100%;
     min-height: 636px;
     max-height: 80vh;
+    margin-top: 80px;
     background: black;
 }
+
 .header__background {
+    opacity: 0.8;
     height: 100%;
     width: 100%;
     position: absolute;
     object-fit: cover;
 }
 
-nav {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    background: white;
-    height: 80px;
-    padding: 0 100px;
-    gap: 40px;
-}
-
 .banner {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     z-index: 1;
     font-size: 1.375rem;
     color: white;
-    display: flex;
-    flex-direction: column;
     gap: 24px;
 }
 
@@ -274,8 +326,8 @@ nav {
     font-size: 14px;
 }
 
-.cartao__btn {
-    margin-top: 60px;
+.cartao__margin {
+    margin-top: 40px;
 }
 
 .cartao__cont {
@@ -289,7 +341,6 @@ nav {
     gap: 8px;
     margin-bottom: 10px;
 }
-
 
 .cartao__iframe {
     display: flex;
@@ -410,7 +461,6 @@ section {
     padding: 4px 6px;
     cursor: pointer;
 }
-
 
 .beneficios__saldo:hover .ballon {
     opacity: 1;
@@ -609,7 +659,6 @@ section {
     margin-bottom: 70px;
 }
 
-
 .solucoes__header { 
     position: relative;
     background-color: #5D0216;
@@ -750,7 +799,6 @@ section {
     align-items: flex-start;
     margin-bottom: 10px;
 }
-
 
 /* descontos */ 
 
@@ -909,7 +957,6 @@ footer {
     color: var(--caju__red);
     margin-bottom: 10px;
 }
-
 
 .reconhecimento__group img {
     width: 100px;

@@ -16,15 +16,42 @@
 </head>
 
 <body id="body">
-
     <div id="app">
+        
+        <nav @click="openMenuNav" id="nav">
+            <div class="navegacao__logo">
+                <img class="navegacao__logo--1" src="./src/logo.svg"  alt="Logo Caju">
+                <img class="navegacao__logo--2" src="./src/mais.svg" alt="plus">
+                <img class="navegacao__logo--3" src="./src/logo-cora.svg" alt="Cora.">
+            </div>
+            
+            <div style="display: flex; align-items: center; position: relative;">
+                <div class="nav__overlay"></div>
+
+                <div>
+                    <button class="hamburger" v-if="!isActived">☰</button>
+                    <button class="navegacao__close" v-else>✖</button>
+                </div>
+
+                <div class="navegacao">
+                    <a class="navegacao__link" href="#beneficio--link">Caju Benefícios</a>
+                    <a class="navegacao__link" href="#despesas--link">Caju Despesas</a>
+                    <a class="navegacao__link" href="#premiacoes--link">Caju Premiações</a>
+                    <a class="navegacao__link" href="#mais--link">Caju Mais</a>
+                    <a class="navegacao__link" href="#feirinha--link">Feirinha da Caju</a>
+
+                    <div class="navegacao__logo">
+                        <img src="./src/logo.svg" width="60" alt="Logo Caju">
+                        <img src="./src/mais.svg" width="10" alt="plus">
+                        <img src="./src/logo-cora.svg" width="40" alt="Cora.">
+                    </div>
+                </div>
+            </div>
+        </nav>
+
         <header>
             <img class="header__background" src="./src/images/foto-caju-cartao.png">
-            <nav>
-                <img src="./src/logo.svg" width="100" alt="Logo Caju">
-                <img src="./src/mais.svg" width="20" alt="plus">
-                <img src="./src/logo-cora.svg" width="60" alt="Cora.">
-            </nav>
+            
             <div class="banner margin--body">
                 <h1 class="h1__banner">
                     A Cora leva os <br> multibenefícios Caju <br> para sua empresa
@@ -32,9 +59,7 @@
                 <p class="banner__subtitle">
                     Caju é a solução completa para oferecer <br> multibenefícios que vão da mobilidade ao bem-estar<br> dos colaboradores da sua empresa
                 </p>
-                <button class="btn__red">
-                    Quero conhecer Caju
-                </button>
+                <a class="btn__red" href="#forms--link">Quero conhecer Caju</a>
             </div>
         </header>
 
@@ -89,9 +114,9 @@
                                 </p>
                             </div>
                             <div class="cartao__margin">
-                                <button class="cartao__btn btn__red">
+                                <a href="#forms--link" class="cartao__btn btn__red">
                                     Pedir Cartão Caju
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -104,6 +129,7 @@
                 <img class="background--beneficio" src="./src/images/foto-caju-celular-cartao.png">
                 <div class="beneficios margin--body">
                     <div class="beneficios__red">
+                        <div id="beneficio--link" style="position: absolute; top: 340px;"><!-- Ancora --></div>
                         <div class="beneficios__title">
                             <img class="beneficios__svg"  src="./src/caju-beneficios.svg">
                             <h2 class="beneficios__calling">Chega mais, vem conhecer <br> os multibenefícios! </h2>
@@ -135,14 +161,14 @@
                     </div>
                 </div>
 
-                <button class="btn__red">Quero Oferecer Multibenefícios</button>
+                <a href="#forms--link" class="btn__red">Quero Oferecer Multibenefícios</a>
 
             </section>
 
             <!--  -->
 
             <section class="surpreenda">
-
+                <div id="premiacoes--link" style="position: absolute; top: -100px;"><!-- Ancora --></div>
                 <img  class="surpreenda__grafismo-1" src="./src/vector.svg">
                 <img  class="surpreenda__grafismo-2" src="./src/vector-1.svg">
 
@@ -213,15 +239,17 @@
                         </div>
                     </div>
                     
-                    <button class="btn__red">
-                        Presentear com Caju Premiações
-                    </button>
+                    <div class="margin">
+                        <a href="#forms--link" class="btn__red">
+                            Presentear com Caju Premiações
+                        </a>
+                    </div>
 
                 </div>
             </section>
 
             <section class="section__solucoes">
-
+                <div id="despesas--link" style="position: absolute; top: -100px;"><!-- Ancora --></div>
                 <img class="solucoes__grafismo" src="./src/vector-6.svg" alt="Gráfismo">
                 <img class="solucoes__background" src="./src/images/foto-caju-mesa-cartao.jpg" alt="Foto do cartão Caju">
                 <div class="solucoes margin--body">
@@ -347,7 +375,7 @@
                     </div>
 
                     <div style="margin-top: 100px; width: 100%; display: flex; justify-content: center;">
-                        <button class="btn__white">Experimentar Caju Despesas</button>
+                        <a href="#forms--link" class="btn__white">Experimentar Caju Despesas</a>
                     </div>
  
                 </div>
@@ -356,6 +384,9 @@
             <!--  -->
             
             <section class="pacote">
+
+                <div id="mais--link" style="position: absolute; top: -80px;"><!-- Aconra --></div>
+
                 <img class="pacote__grafismo" src="./src/vector-two.svg" alt="Gráfismo">
 
                 <div class="margin--body">
@@ -388,7 +419,6 @@
                     </h3>  
 
                     <div class="pacote--container global-icon__list--container">
-                        
                         <div class="pacote-v-for" v-for="colaborador in colaboradores">
                             <div class="global-icon__list pacote--icon flex">
                                 <img class="global-icon__list--icon" :src="'./src/icons/colaboradores/' + colaborador.icon">
@@ -396,11 +426,10 @@
                             </div>
                             <p>{{ colaborador.text }}</p>
                         </div>
-
                     </div>
 
                     <div class="margin">
-                        <button class="btn__white">Ter Caju Mais na minha empresa</button>
+                        <a href="#forms--link" class="btn__white">Ter Caju Mais na minha empresa</a>
                     </div>
 
                 </div>                
@@ -409,6 +438,7 @@
             <!--  -->
 
             <section class="descontos">
+                <div id="feirinha--link" style="position: absolute; top: -80px;"><!-- Ancora --></div>
                 <div class="margin--body">
                     <img class="descontos__grafismo" src="./src/vector-3.svg" >
                    <div class="descontos__grid">
@@ -444,9 +474,9 @@
                 </div>
                 
                 <div class="descontos__btn__white margin">
-                    <button class="btn__white">
+                    <a href="#forms--link" class="btn__white">
                         Quero descontos no Feirinha
-                    </button>
+                    </a>
                 </div>
                 
             </section>
@@ -454,6 +484,7 @@
             <!--  -->
 
             <section class="contato">
+                <div id="forms--link" style="position: absolute; top: -80px"></div>
                 <img class="contato__grafismo" src="./src/vector-4.svg">
                 <div class="contato__container margin--body">
                     <span>

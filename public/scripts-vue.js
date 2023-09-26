@@ -1,6 +1,20 @@
 new Vue({
     el: '#app',
     methods: {
+        openMenuNav(event){
+            let nav = document.getElementById('nav')
+            
+            if(event.target.classList[0] != 'navegacao'){
+                this.isActived = !this.isActived
+                
+                if(!document.querySelector('.nav--responsive')){
+                    nav.setAttribute('class', 'nav--responsive')
+                }
+                else {
+                    nav.removeAttribute('class')
+                }
+            }
+        },
         openCard(event){
             let actived = document.querySelector('.itIsActived')
             let elementEvent = event.currentTarget.classList
@@ -23,7 +37,8 @@ new Vue({
         }
     },
     data: {
-       cartoes: [
+        isActived : false,
+        cartoes: [
            {
                title: 'Custo zero para experimentar',
                icon: './src/icons/favorite.svg',
