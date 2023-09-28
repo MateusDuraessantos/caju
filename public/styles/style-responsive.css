@@ -21,6 +21,7 @@
     
     * {
         text-wrap: wrap !important;
+        white-space: initial;
     }
 
     .contato__grafismo, .surpreenda__grafismo-1 {
