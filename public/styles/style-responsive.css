@@ -185,9 +185,7 @@
 
     /* pacotes */
 
-    .pacote__h3 {
-        margin-top: 70px;
-    }
+   
 
     .pacote__img{
         display: flex;
@@ -210,15 +208,23 @@
         gap: 40px;
     }
 
+    .pacote__column--1 {
+        gap: 40px;
+    }
+
+    .pacote__h3 {
+        margin-top: 40px;
+    }
+
     .pacote__tag--container {
         left: initial;
-        position: absolute !important;
-        top: 114px;
+        position: initial !important;
     }
 
     .pacote-v-for {
         min-width: initial;
         max-width: initial;
+        text-align: center;
     }
 
     .pacote-v-for .flex{
@@ -589,7 +595,7 @@
     }
 
     .global-icon__list--container {
-        margin-top: 21px;
+        margin-top: 28px;
     }
 
     .btn__red, .btn__orange, .btn__white {

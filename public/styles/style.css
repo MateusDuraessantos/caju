@@ -905,10 +905,38 @@ section {
     background: var(--caju__orange);
 }
 
+.form label {
+    margin-top: 10px;
+}
+
 .form__input {
     border-radius: 6px;
     border: none;
     height: 40px;
+    padding-left: 12px;
+    transition: .2s;
+    font-size: 16px;
+    outline-width: 3px;
+    outline-color: transparent;
+    outline-style: solid;
+}
+
+.form__input:focus, .form__input:checked {
+    transition: .1s;
+    border: none;
+    outline-width: 3px;
+    outline-color:  var(--caju__red);
+    outline-style: solid;
+}
+
+.form__input:focus {
+    color:  var(--caju__red);
+}
+
+.form__input::placeholder {
+    color: rgb(208, 208, 208);
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .form .btn__red {
