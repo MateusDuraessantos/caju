@@ -589,8 +589,23 @@
 
 }
 
+.banner__card br{
+    display: initial !important;
+}
+
 @media screen and (max-width: 500px) {
-    
+
+    .banner__card {
+        position: relative;
+        text-align: center;
+        text-wrap: wrap;
+        margin: auto;
+    }
+
+    .banner__img {
+        right: 0;
+    }
+
     .solucoes__header {
         margin-bottom: 28px;
     }
