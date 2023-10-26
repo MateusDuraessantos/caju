@@ -6,13 +6,18 @@
     <title>Caju</title>
     <!-- Logo Aba -->
     <link rel="shortcut icon" type="imagex/png" href="./src/logo-aba.svg">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/style-responsive.css">
-    <!-- VueJs -->
+
+    <!-- Esse projeto utiliza o VueJs CDN -->
+
+    <!-- Para saber mais sobre o VueJs CDN: -->
+    <!-- https://br.vuejs.org/v2/guide/installation.html -->
+
+    <!-- Vue js Para desenvolvimento:  -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
-    <script src="./scripts/vue.min.js"></script>
- 
+
+    <!-- VueJs para produção -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
 </head>
 
 <body id="body">
@@ -28,7 +33,7 @@
             <div style="display: flex; align-items: center; position: relative;">
                 <div class="nav__overlay"></div>
 
-                <div>
+                <div style="cursor: pointer;">
                     <button class="hamburger" v-if="!isActived">☰</button>
                     <button class="navegacao__close" v-else>✖</button>
                 </div>
@@ -589,7 +594,1870 @@
         </footer>
     </div>
 
-    <script src="./scripts/scripts-vue.js">//Aqui ficam todas as informações dos cards e de listas</script>
 </body>
 
+<script>
+//Aqui ficam todas as informações dos cards e de listas
+new Vue({
+    el: '#app',
+    methods: {
+        openMenuNav(event){
+            let nav = document.getElementById('nav')
+            
+            if(event.target.classList[0] != 'navegacao'){
+                this.isActived = !this.isActived
+                
+                if(!document.querySelector('.nav--responsive')){
+                    nav.setAttribute('class', 'nav--responsive')
+                }
+                else {
+                    nav.removeAttribute('class')
+                }
+            }
+        },
+        openCard(event){
+            let actived = document.querySelector('.itIsActived')
+            let elementEvent = event.currentTarget.classList
+            if(event.target.classList != 'beneficios__saldo'){
+                if(!actived && elementEvent[1] == 'reponsive-1000') {
+                    elementEvent.remove('reponsive-1000')
+                    elementEvent.add('itIsActived')
+                }
+                else if (actived && event.currentTarget.classList[1] != 'itIsActived') {
+                    actived.classList.add("reponsive-1000")
+                    actived.classList.remove("itIsActived")
+                    elementEvent.add('itIsActived')
+                    elementEvent.remove('reponsive-1000')
+                }
+                else {
+                    elementEvent.add('reponsive-1000')
+                    elementEvent.remove('itIsActived')
+                }
+            }
+        }
+    },
+    data: {
+        isActived : false,
+        cartoes: [
+           {
+               title: 'Custo zero para experimentar',
+               icon: './src/icons/favorite.svg',
+               text: 'Prove da versatilidade dos multibenefícios Caju com custo zero para contratar',
+           },
+           {
+               title: 'Piscou, chegou!',
+               icon: './src/icons/rocket.svg',
+               text: 'Os cartões são entregues em até 3 dias úteis em São Paulo (capital) e até 5 dias úteis nas demais cidades do Brasil',
+           },
+           {
+               title: 'Avisa que é Visa! ',
+               icon: './src/icons/credit.svg',
+               text: 'O cartão Caju é bandeira Visa, passa na função crédito e é aceito em milhões de estabelecimentos ao redor do mundo ',
+           },
+           {
+               title: 'Segurança jurídica garantida',
+               icon: './src/icons/shield.svg',
+               text: 'Oferecemos categorias de saldo fixas, para ficar nos conformes com o PAT',
+           },
+       ],
+       items: [
+           {
+               title: 'Mobilidade',
+               saldo: 'flexivel',
+               icon: 'mobilidade.svg', 
+               text: 'Saldo exclusivo para o transporte dos colaboradores, que pode ser usado para pagar a passagem de ônibus dentro e fora da cidade, metrô, aluguel de bicicletas e até aquelas corridas em carro de aplicativo nos dias de chuva.' ,
+               color: "FFE082"
+           },
+           {
+               title: 'Auxílio home office', 
+               saldo: 'flexivel',
+               icon: 'home-office.svg', 
+               text: 'Saldo para pagar despesas de casa, como a conta de energia, internet, mobília para o escritório - com direito a aquela cadeira bacana para dar jeito na coluna! ', 
+               color: "C1ABE6",
+           },
+           {
+               title: 'Educação', 
+               saldo: 'flexivel',
+               icon: 'educacao.svg', 
+               text: 'Saldo para aprender um novo idioma, fazer cursos e até pagar as mensalidades daquele curso superior tão ', 
+               color: "F59BC5",
+           },
+           {
+               title: 'Saúde', 
+               saldo: 'flexivel',
+               icon: 'saude.svg', 
+               text: 'Saldo para cuidar do bemestar, que passa em academias, farmácias, laboratórios de exames e até atendimentos psicológicos para ficar zen. ', 
+               color: "9BE59B",
+           },
+           {
+               title: 'Cultura', 
+               saldo: 'flexivel',
+               icon: 'cultura.svg', 
+               text: 'Saldo para utilizar nos momentos de lazer, como cinema, shows, livrarias, teatros e até no pagamento de streamings para maratonar as séries favoritas. ', 
+               color: "74CFE8",
+           },
+           {
+               title: 'Auxílio-alimentação', 
+               saldo: 'fixo',
+               icon: 'auxilio-alimentacao.svg', 
+               text: 'Saldo versátil para utilizar nos restaurantes preferidos ou nas compras do mês no supermercado. ', 
+               color: "F89682",
+           },
+           {
+               title: 'Alimentação',
+               saldo: 'fixo',
+               icon: 'chapel.svg', 
+               text: 'Saldo para usar no mercadinho perto de casa ou no hipermercado mais longe, que vende as coisinhas que só se', 
+               color: "FFC16B",
+           },
+           {
+               title: 'Refeição', 
+               saldo: 'fixo',
+               icon: 'fork-plate.svg', 
+               text: 'Saldo para cuidar do bemestar, que passa em academias, farmácias, laboratórios de exames e até atendimentos psicológicos para ficar zen.',
+               color: "F18184",
+           }
+        ],
+        colaboradores: [
+           {
+               icon: 'health.svg',
+               title: 'Corpo são, mente sã',
+               text: 'Planos com milhares de academias, estúdios e aulas online para incentivar seus colaboradores a praticarem atividade física.',
+           },
+           {
+               icon: 'cup.svg',
+               title: 'Saúde em primeiro lugar',
+               text: 'Acesso a profissionais de saúde através de teleconsultas e pronto-atendimento quando for necessário.',
+           },
+           {
+               icon: 'brain.svg',
+               title: 'Psicoterapia na palma da mão',
+               text: 'Acesso a profissionais de saúde através de teleconsultas e pronto-atendimento quando for necessário.',
+           },
+           {
+               icon: 'health-one.svg',
+               title: 'Descontinhos em exames e farmácias',
+               text: 'Descontos em vários medicamentos e exames médicos.',
+           },
+           {
+               icon: 'book.svg',
+               title: 'Apoio nas finanças e no juridiquês',
+               text: 'Assessoria jurídica e contábil para desenrolar as pendências e cuidar do bolso dos colaboradores.',
+           },
+           {
+               icon: 'car.svg',
+               title: 'Transporte garantido e com valor fixo',
+               text: 'Gestão e compra do vale-transporte de forma automática e com preço fixo para o colaborador.',
+           },
+        ],
+    },
+})
+</script>
+
+<style>
+@font-face {
+    font-family: Faktum;
+    src: url('../font/Faktum-Regular.otf') format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Faktum;
+    src: url('../font/Faktum-Bold.otf') format('opentype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Faktum;
+    src: url('../font/Faktum-SemiBold.otf') format('opentype');
+    font-weight: 600;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--caju__red); 
+    border-radius: 6px; 
+    border: 0px solid #F5F5F5; 
+}
+
+::-webkit-scrollbar {
+    width: 6px; 
+    height: 12px;
+    background-color: #F5F5F5;
+    border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd; 
+    border-radius: 6px; 
+    border: 0px solid #F5F5F5; 
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Faktum', sans-serif !important;
+    box-sizing: border-box !important;
+}
+
+body {
+    /* overflow-x: hidden; */
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    width: 100%;
+}
+
+:root {
+    --caju__red: #E80537;
+    --caju__red--hover: #d3002e;
+    --caju__orange: #FF7500;
+    --caju__orange--hover: #db6600;
+    --radius__strong: 50px;
+}
+
+.btn__red, .btn__orange, .btn__white {
+    display: block;
+    padding: 14px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: .2s;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    width: max-content;
+    text-decoration: none;
+    color: white;
+}
+
+.btn__red:hover, .btn__orange:hover {
+    transition: .2s;
+}
+
+.btn__red {
+    background: var(--caju__red);
+    font-weight: 400;
+}
+
+.btn__orange {
+    background: var(--caju__orange);
+}
+
+.btn__white {
+    background: white;
+    color: var(--caju__red);
+}
+
+.btn__red:hover {
+    background: var(--caju__red--hover);
+}
+
+.btn__orange:hover {
+    background: var(--caju__orange--hover);
+}
+
+.btn__white:hover {
+    background: rgb(226, 226, 226);
+}
+
+p {
+    line-height: 24px;
+    letter-spacing: 0.3px;
+}
+
+.margin--body {
+    width: calc(100% - 80px);
+    max-width: 1160px;
+    margin: auto;
+}
+
+.global-icon__list--icon { 
+    width: 30px;
+}
+
+.global-icon__list--container { 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    z-index: 1;
+    margin-top: 80px;
+}
+.global-icon__list { 
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.margin {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    margin: auto;
+}
+
+/* Navegação */
+
+
+nav {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    height: 80px;
+    padding: 0 100px;
+    gap: 40px;
+    width: 100%;
+    z-index: 100;  
+}
+
+.navegacao {
+    display: flex;
+    gap: 36px;
+}
+
+.navegacao__logo {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navegacao__logo--1 {
+    width: 100px;
+}
+.navegacao__logo--2 {
+    width: 20px;
+}
+.navegacao__logo--3 {
+    width: 60px;
+}
+
+.navegacao__link {
+    display: flex;
+    gap: 26px;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    transition: .2s;
+}
+
+.navegacao__link:hover {
+    transition: .2s;
+    color: var(--caju__red);
+}
+
+/* Banner */
+
+header {
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 50vw; 
+    width: 100%;
+    min-height: 636px;
+    max-height: 80vh;
+    margin-top: 80px;
+    background: black;
+}
+
+header .margin--body {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header__background {
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+.banner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    font-size: 1.375rem;
+    color: white;
+    gap: 24px;
+    height: calc(100% - 100px);
+    width: 100%;
+}
+
+.banner__card {
+    position: absolute;
+    background: var(--caju__red);
+    border-radius: 20px;
+    padding: 12px 18px;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.banner__card p {
+    font-weight: 600;
+    line-height: 34px;
+    font-size: 26px;
+}
+
+.banner__img {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    height: 50px;
+}
+
+.h1__banner {
+    width: 500px;
+}
+
+.banner__subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Cartão */
+ 
+.cartao {
+    margin: 100px 0 60px 0;
+}
+
+.cartao__video {
+    border-radius: 14px;
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    background: black;
+    background-image: url('../src/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cartao__h2 {
+    text-wrap: nowrap;
+    color: var(--caju__red);
+    margin-bottom: 24px;
+}
+
+.cartao__row--1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.cartao__row--2 {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1.2fr 500px;
+    gap: 40px;
+    margin-top: 100px;
+    margin-bottom: 140px;
+}
+
+.cartao__img {
+    width: 80%;
+    margin: auto;
+}
+
+.cartao__h5 {
+    color: var(--caju__red);
+    font-size: 1.25rem;
+}
+
+.cartao__icon {
+    width: 24px; 
+}
+
+.cartao__text {
+    font-size: 14px;
+}
+
+.cartao__margin {
+    margin-top: 40px;
+}
+
+.cartao__cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cartao__cont .flex{
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.cartao__iframe {
+    display: flex;
+    justify-content: center;
+}
+
+/* Beneficios */
+
+section {
+    position: relative;
+}
+
+.beneficios {
+    position: relative;
+    z-index: 1;
+}
+
+.background--beneficio {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.section__beneficios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 200px;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.beneficios__grid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.beneficios__red {
+    width: 100%;
+    border-radius: 30px;
+    background: #E80537;
+    height: 600px;
+    padding: 28px;
+    margin-top: 500px;
+}
+
+.beneficios__calling {
+    color: white;
+    width: max-content;
+}
+
+.beneficios__svg {
+    margin-left: 20px;
+    width: 238px;
+}
+
+.beneficios__title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.beneficios__card--title {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.beneficios__card--h3 {
+    height: 42px;
+    font-size: 1.5rem;
+}
+
+.beneficios__card {
+    position: relative;
+    display: flex;    
+    flex-direction: column;
+    border: 8px;
+    border-radius: 14px;
+    padding: 12px;
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+    height: 252px;
+    
+}
+
+.beneficios__text {
+    font-size: 14px;
+    font-weight: 300;
+    overflow: auto;
+    height: 120px;
+    padding-right: 14px;
+}
+
+.beneficios__saldo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    color: black;
+    height: max-content;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 6px;
+    cursor: pointer;
+}
+
+.beneficios__saldo:hover .ballon {
+    opacity: 1;
+    transition: .3s;
+    pointer-events: default;
+}
+
+.ballon p {
+    line-height: 18px;
+    font-size: 14px;
+    width: max-content;
+}
+
+.ballon {
+    opacity: 0;
+    transition: .3s;
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    width: max-content;
+    justify-content: center;
+    background: #252525;
+    border-radius: 6px;
+    color: white;
+    padding: 10px;
+    bottom: -60px;
+    transform: translate(calc(-50% + 32px));
+    text-wrap: nowrap;
+    z-index: 2;
+}
+
+.arrow {
+    position: absolute;
+    display: block;
+    background: #252525;
+    transform: rotate(45deg);
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    z-index: 1;
+}
+
+/* Surpreenda */
+
+.surpreenda {
+    position: relative;
+    background: #FFE6EC;
+    width: 100%;
+}
+
+.surpreenda__grafismo-1,
+.surpreenda__grafismo-2 {
+    position: absolute;
+}
+
+.surpreenda__grafismo-1 {
+    left: 0;
+    top: 34%;
+}
+
+.surpreenda__grafismo-2 {
+    right: 0;
+    top: 74%;
+}
+
+.surpreenda--container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    justify-items: center;
+    gap: 40px;
+    padding: 80px 0;
+    z-index: 1;
+}
+
+.surpreenda__icon {
+    width: 40px;
+}
+
+.surpreenda__img { 
+    width: 243px;
+}
+.surpreenda__padding--bottom {
+    padding-bottom: 40px;
+}
+
+.surpreenda__list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Premiações */
+
+.premiacoes {
+    text-align: center;
+    padding: 80px 0;
+    padding-top: 60px;
+}
+
+.premiacoes .btn__red {
+    margin-top: 80px;
+}
+
+.premiacoes__h2 {
+    color: var(--caju__red);
+    width: max-content;
+    margin: auto;
+    margin-bottom: 50px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.premiacoes__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 40px;
+    width: 80%;
+    min-width: 800px;
+    margin: auto;
+}
+
+.premiacoes__card {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.premiacoes__p{
+    text-wrap: nowrap;
+    font-weight: 600;
+}
+
+/* Soluções */
+
+.section__solucoes {
+    margin-top: 400px;
+    background: #5D0216;
+}
+
+.solucoes {
+    position: relative;
+    color: white;
+    padding: 50px 0;
+    z-index: 2;
+}
+
+.solucoes__background {
+    position: absolute;
+    height: 700px;
+    width: 100%;
+    top: -400px;
+    object-fit: cover;
+}
+
+.solucoes__h2 {
+    margin-bottom: 24px;
+}
+
+.solucoes__logo-despesas {
+    width: 228px;
+}
+
+.solucoes__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.solucoes__grafismo {
+    position: absolute;
+    top: 500px;
+    right: 0;
+}
+
+.solucoes__img--grid {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.solucoes__reembolso {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.solucoes__h3 { 
+    font-size: 1.875rem;
+    margin: auto;
+    text-align: center;
+    width: max-content;
+    margin-top: 130px;
+    margin-bottom: 70px;
+}
+
+.solucoes__header { 
+    position: relative;
+    background-color: #5D0216;
+    padding: 100px 100px;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 60px;
+    z-index: 1;
+}         
+
+.solucoes__group {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 60px 40px;
+    flex-wrap: wrap;
+}
+
+.group__container {
+    max-width: 360px;
+}
+
+.group__icon {
+    width: 120px;
+    margin-right: 20px;
+}
+
+.group__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.group__text {
+    font-family: Faktum;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* pacote */ 
+
+.pacote {
+    position: relative;
+    padding: 100px 0;
+    background: var(--caju__orange);
+    color: white;
+}
+
+/* .pacote div {
+    position: relative;
+    z-index: 1;
+} */
+
+.pacote__grafismo {
+    position: absolute;
+    top: 340px;
+}
+
+.pacote__h2 {
+    text-wrap: nowrap;
+    margin-bottom: 24px;
+}
+
+.pacote__h3 {
+    text-align: center;
+    margin: auto;
+    margin-top: 64px;
+}
+
+.pacote__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 140px;
+}
+
+.pacote__tag--container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 254px;
+    left: -100px;
+}
+
+.pacote__tag {
+    display: flex;
+    justify-content: center;
+    background: var(--caju__red);
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+
+.pacote__tag--img {
+    height: 50px;
+}
+
+.pacote__column--1 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.pacote__img {
+    height: 500px;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.pacote__img img {
+    width: 100%;
+    min-height: 500px;
+    object-fit: cover;
+} 
+
+.pacote__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.pacote--container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0;
+}
+
+.pacote-v-for {
+    max-width: calc(33.33% - 80px);
+    min-width: 300px;
+    margin-bottom: 76px;
+}
+
+.pacote--icon {
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* descontos */ 
+
+.descontos {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 0;
+    background: var(--caju__red);
+    color: white;
+}
+
+.descontos__btn__white{
+    margin-top: 60px;
+}
+
+.descontos__grafismo {
+    position: absolute;
+    right: 0;
+    top: -200px;
+    width: 220px;
+}
+
+.descontos__h2 {
+    margin-bottom: 24px;
+}
+
+.descontos__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin: auto;
+    gap: 40px;
+}
+
+.descontos__group--1 {
+    width: 80%;
+}
+
+.descontos__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 360px;
+    margin: auto;
+    gap: 96px;
+    white-space: nowrap;
+}
+
+.descontos__img {
+    position: relative;
+    border-radius: var(--radius__strong);
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.descontos__img img {
+    position: absolute;
+    width: 100%;
+    min-height: 380px;
+    bottom: 0;
+}
+
+/* Contato */
+
+.contato {
+    position: relative;
+    background-image: url('../src/images/foto-caju-home-office.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    color: white;
+}
+
+.contato__grafismo {
+    position: absolute;
+    left: 0;
+    bottom: -200px;
+}
+
+.contato__container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    height: max-content;
+    justify-items: center;
+}
+
+.contato__h3 {
+    margin-top: 200px;
+    font-size: 3rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px;
+    border-radius: 30px;
+    height: calc(100% - 80px);
+    width: 100%;
+    margin: 40px 0;
+    background: var(--caju__orange);
+}
+
+.form label {
+    margin-top: 10px;
+}
+
+.form__input {
+    border-radius: 6px;
+    border: none;
+    height: 40px;
+    padding-left: 12px;
+    transition: .2s;
+    font-size: 16px;
+    outline-width: 3px;
+    outline-color: transparent;
+    outline-style: solid;
+}
+
+.form__input:focus, .form__input:checked {
+    transition: .1s;
+    border: none;
+    outline-width: 3px;
+    outline-color:  var(--caju__red);
+    outline-style: solid;
+}
+
+.form__input:focus {
+    color:  var(--caju__red);
+}
+
+.form__input::placeholder {
+    color: rgb(208, 208, 208);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form .btn__red {
+    width: 100%;
+}
+
+.form__btn__red {
+    margin-top: 12px;
+}
+
+/* Footer */
+
+footer {
+    position: relative;
+    padding-top: 100px;
+}
+
+.footer__grafismo {
+    right: 0;
+    position: absolute;
+}
+
+.footer__h2 {
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.reconhecimento {
+    position: relative;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px 100px;
+    z-index: 1;
+}
+
+.reconhecimento__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.reconhecimento__h2 {
+    color: var(--caju__red);
+    margin-bottom: 10px;
+}
+
+.reconhecimento__group img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.reconhecimento__group p {
+    font-size: 1.125rem;
+    font-weight: 600;   
+}
+
+.rodape {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FAFAFA;
+    font-size: 12px;
+    color: gray;
+    padding: 20px 40px;
+    z-index: 1;
+}   
+
+.rodape p {
+    line-height: 18px;
+}
+/*  */
+</style>
+
+<!-- CSS resonsivo -->
+
+<style>
+
+@media screen and (max-width: 1280px) {
+    nav {
+        padding: 0 22px;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .surpreenda--container, .premiacoes__grid, .pacote__grid, .solucoes__header, .beneficios__title, .reconhecimento, .contato__container, .cartao__row--1, .solucoes__grid, .pacote__column--1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    br {
+        display: none;
+    }
+    
+    .rodape br {
+        display: initial;
+    }
+    
+    * {
+        text-wrap: wrap !important;
+        white-space: initial;
+    }
+
+    .contato__grafismo, .surpreenda__grafismo-1 {
+        display: none;
+    }
+
+    .margin--body {
+        width: calc(100% - 40px);
+    }
+
+    /* header */
+
+    .header__background {
+        opacity: 0.5;
+    }
+    
+    .descontos__btn__white, .premiacoes .btn__red {
+        margin-top: 0;
+    }
+
+    /* Cartão */
+    
+    .cartao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartao__img {
+        width: 270px;
+    }
+
+    .cartao__row--2 {
+        gap: 30px;
+        width: initial;
+        grid-template-columns: max-content 1fr;
+    }
+
+    .beneficios__text {
+        position: absolute;
+        top: 40px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    .beneficios__red {
+        height: max-content;
+        border-radius: 20px;
+        padding: 22px 12px 24px 12px;
+    }
+
+    .section__beneficios {
+        gap: 80px;
+    }
+
+    .beneficios__grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .beneficios__title {
+        gap: 20px;
+        text-align: center;
+    }
+
+    .beneficios__card {
+        min-width: 260px;
+        margin-bottom: initial;
+        transition: .4s;
+    }
+
+    .beneficios__saldo {
+        transition-delay: .3s !important;
+        transition: .3s;
+    }
+
+    .reponsive-1000 .beneficios__saldo {
+        transition: .26s !important;
+    }
+
+    .beneficios__card::after {
+        content: '›';
+        position: absolute;
+        font-size: 42px;
+        right: 20px;
+        transform: rotate(90deg);
+        transition: .4s;
+    }
+
+    .beneficios__card::after {
+        position: absolute;
+        right: 12px;
+        top: 0;
+    }
+
+    .reponsive-1000 .beneficios__text, .reponsive-1000 .beneficios__saldo {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transition: .4s;
+    }
+
+    .beneficios__card {
+        width: 100%;
+    }
+
+    .reponsive-1000.beneficios__card {
+        cursor: pointer;
+        height: 50px;
+        transition: .4s;
+        justify-content: center;
+    }
+
+    .reponsive-1000.beneficios__card::after {
+        position: absolute;
+        right: 12px;
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    .reponsive-1000 .beneficios__card--h3 {
+        transition: .4s;
+        height: initial;
+    }
+
+    .beneficios__card--title {
+        cursor: pointer;
+        align-items: center;
+    }
+
+    .reponsive-1000 .beneficios__card--title {
+        position: absolute;
+        align-items: center;
+        left: 12px;
+        top: 12px;
+    }
+
+    /* premiacoes */
+
+    .premiacoes__grid {
+        min-width: initial;
+        gap: 40px;
+        margin-bottom: 54px;
+    }
+
+    .premiacoes__card {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+    }
+
+    /*  */
+
+    .solucoes__header {
+        gap: 30px;
+        padding: 40px;
+    }
+
+    /* pacotes */
+
+   
+
+    .pacote__img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pacote__img img {
+        width: initial;
+        height: 100%;
+    }
+
+    .pacote__grid {
+        gap: 40px;
+    }
+
+    .pacote--container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .pacote__column--1 {
+        gap: 40px;
+    }
+
+    .pacote__h3 {
+        margin-top: 40px;
+    }
+
+    .pacote__tag--container {
+        left: initial;
+        position: initial !important;
+    }
+
+    .pacote-v-for {
+        min-width: initial;
+        max-width: initial;
+        text-align: center;
+    }
+
+    .pacote-v-for .flex{
+        flex-direction: column;
+    }
+
+    .pacote__title {
+        text-align: center;
+    }
+
+    .pacote--icon {
+        align-items: center;
+    }
+
+    /* Gráficos */
+
+    .solucoes__grafismo {
+        width: 300px;
+        top: 540px;
+    }
+
+    .surpreenda__grafismo-2 {
+        width: 120px;
+        top: -50px;
+    }
+
+    .descontos__grafismo {
+        top: -90px;
+        width: 120px;
+    }
+
+    .footer__grafismo {
+        width: 150px;
+        top: 450px;
+    }
+
+    /* footer */
+
+    .beneficios__calling, .solucoes__h3, .h1__banner, .footer__h2 {
+        width: 100%;
+    }
+
+    .descontos__img img {
+        width: 145%;
+    }
+
+    .ballon {
+        right: -240px;
+        width: 270px;
+        transform: translate(calc(-40% + 32px));
+        top: -70px;
+        bottom: initial;
+    }
+
+    .arrow {
+        left: 40px;
+        top: initial;
+        bottom: -7px;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    .beneficios__card--h3 {
+        height: initial;
+    }
+    
+    .navegacao__logo {
+        gap: 14px;
+    }
+
+    .navegacao__logo--1 {
+        width: 70px;
+    }
+    .navegacao__logo--2 {
+        width: 10px;
+    }
+    .navegacao__logo--3 {
+        width: 35px;
+    }
+
+}
+
+/* header, nav, banner */
+
+.navegacao .navegacao__logo, .navegacao__close, .hamburger {
+    display: none;
+} 
+
+@media screen and (max-width: 1000px) {
+    
+    .navegacao .navegacao__logo, .navegacao__close, .hamburger  {
+        display: flex;
+    } 
+
+    .navegacao__close, .nav__overlay, .navegacao, .hamburger {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    * {
+        transition: .2s !important;
+    }
+
+    .navegacao {
+        position: fixed;
+        flex-direction: column;
+        width: 0;
+        transform: .4s;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        padding: 20px;
+        display: flex;
+        background: var(--caju__red);
+        background: white;
+        overflow: hidden;
+    }
+
+    .nav--responsive .navegacao {
+        width: 240px;
+        transition: .4s;
+    }
+
+    .hamburger {
+        background-color: transparent;
+        border: none;
+        font-size: 2em;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+    .navegacao__close, .nav__overlay, .nav--responsive .navegacao {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    .nav--responsive .nav__overlay {
+        opacity: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100vh;
+    }
+
+    .navegacao__close {
+        background: none;
+        border: none;
+        position: fixed;
+        top: 14px;
+        right: 22px;
+        font-size: 36px;
+        color: white;
+    }
+
+    .nav--responsive .navegacao .navegacao__logo {
+        margin-top: auto;
+        pointer-events: none;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    
+    .descontos__group, .descontos__grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .descontos__group {
+        width: initial;
+        height: initial;
+        gap: 20px;
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .descontos__group--invert {
+        flex-direction: column-reverse;
+        margin-bottom: 40px;
+    }
+
+    .descontos__group img {
+        width: 200px;
+    }
+
+    .descontos__img {
+        height: 340px;
+    }
+
+    .descontos__img img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .margin--body {
+        width: calc(100% - 30px);
+    }
+
+    .descontos__group {
+        margin-top: 50px;
+    }
+
+    h2, .contato__h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .contato__h3 {
+        margin-top: 22px;
+    }
+
+    header {
+        min-height: 610px;
+    }
+
+    .beneficios__card--h3 {
+        font-size: 1.2rem;
+    }
+    
+    .premiacoes__grid {
+        width: 100%;
+    }
+    
+    .premiacoes__h2 {
+        margin-bottom: 32px;   
+    }
+
+    .rodape {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+        padding: 14px 10px;
+    }
+
+    .cartao__margin {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .cartao__img {
+        margin-bottom: 40px;
+    }
+
+    .cartao {
+        margin: 20px 0 0 0;
+    }
+
+    .cartao__row--2 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 60px;
+        margin-bottom: 62px;
+    }
+    
+    .surpreenda__padding--bottom {
+        padding-bottom: 22px;
+    }
+
+    .group__icon {
+        width: 60px;
+    }
+
+    .group__container p {
+        line-height: 18px;
+    }
+
+    .cartao__btn {
+        margin-top: 24px;
+    }
+
+    .solucoes__group {
+        gap: 25px 40px;
+    }
+
+    .beneficios__card {
+        border-radius: 8px;
+    }
+
+    .beneficios__grid {
+        gap: 12px;
+    }
+
+    .section__beneficios .margin--body {
+        width: calc(100% - 16px);
+    }
+
+    .surpreenda--container {
+        padding: 20px 0;
+    }
+
+    .premiacoes {
+        padding: 40px 0;
+    }
+
+    .solucoes__logo-despesas, .beneficios__svg {
+        width: 165px;
+
+    }
+    .beneficios__title {
+        align-items: flex-start;
+        text-align: start;
+    }
+    
+    .solucoes__header, .solucoes__img--grid, .pacote__img, .form {
+        border-radius: 20px;
+    }
+    
+    .solucoes__header {
+        padding: 28px;
+    }
+
+    .solucoes__h3 {
+        margin-top: 0;
+        margin-bottom: 44px;
+    }
+
+    .solucoes__grid {
+        margin-bottom: 52px;
+    }
+
+    .descontos__group--1{
+       width: 100%;
+    }
+   
+    footer {
+        padding-top: 40px;
+    }
+
+    .footer__h2 {
+        margin-bottom: 30px;
+    }
+
+    .reconhecimento {
+        gap: 24px;
+    }
+
+    .reconhecimento__h2 {
+        margin-bottom: 0;
+    }
+    
+    .reconhecimento__responsive {
+        margin-bottom: 0 !important;
+    }
+
+}
+
+.banner__card br{
+    display: initial !important;
+}
+
+@media screen and (max-width: 500px) {
+
+    .banner__card {
+        position: relative;
+        text-align: center;
+        text-wrap: wrap;
+        margin: auto;
+    }
+
+    .banner__img {
+        right: 0;
+    }
+
+    .solucoes__header {
+        margin-bottom: 28px;
+    }
+
+    .global-icon__list--container {
+        margin-top: 28px;
+    }
+
+    .btn__red, .btn__orange, .btn__white {
+       width: 100%;
+    }
+    
+    .section__beneficios .btn__red, .descontos .btn__white {
+        width: calc(100% - 40px);
+    }
+
+    .cartao__btn {
+        width: 100%;
+    }
+
+    .cartao__cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cartao__row--2 {
+        gap: 20px;   
+    }
+
+    .pacote--container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .pacote-v-for {
+        margin-bottom: 20px;
+    }
+
+    .pacote--container {
+        margin-bottom: 64px;
+    }
+}
+</style>
 </html>
